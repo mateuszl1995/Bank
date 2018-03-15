@@ -1,7 +1,7 @@
 import java.util.Date;
 
-public class BankProductLocate extends BankProduct{
-    BankProductLocate(BankProductAccount linkedAccount, Interest interest, Date expires){
+public class BankProductInvestment extends BankProduct{
+    BankProductInvestment(BankProductAccount linkedAccount, Interest interest, Date expires){
         super();
         this.linkedAccount = linkedAccount;
         this.interest = interest;
@@ -16,5 +16,11 @@ public class BankProductLocate extends BankProduct{
         return interest;
     }
 
-    
+    public boolean hasExpired(){
+        if (expires.before(new Date())){
+            return true;
+        }
+        else return false;
+    }
+
 }

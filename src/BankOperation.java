@@ -2,17 +2,18 @@ import java.util.Date;
 
 public abstract class BankOperation implements BankOperationInterface {
 
-    BankOperation(BankProduct productSource){
+    BankOperation(BankProductInterface productSource){
         this.productSource = productSource;
     }
 
     protected Date date;
     protected String type;
     protected String description;
-    protected BankProduct productSource;
+    protected BankProductInterface productSource;
 
-    public boolean execute(){
+
+    public void execute(){
         date = new Date();
-        return true;
+        productSource.historyAdd(this);
     }
 }

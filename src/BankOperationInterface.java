@@ -4,5 +4,5 @@ public interface BankOperationInterface {
     String getDescription();
     Date getDate();
     String getType();
-    boolean execute();
+    void execute();
 }

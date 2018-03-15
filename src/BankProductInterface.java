@@ -1,4 +1,4 @@
-public interface BankProduct {
+public interface BankProductInterface {
 
     void historyAdd(BankOperation operation);
 
