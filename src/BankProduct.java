@@ -1,4 +1,4 @@
-public interface BankProduct {
+package PACKAGE_NAME;
 
-
+public class BankProduct {
 }
