@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -35,7 +37,7 @@ public class Main {
         operation = new BankOperationWithdraw(account2, 250.0f);
         bank.execute(operation);
 
-        operation = new BankOperationCreateInvestment(account2, 100000.0f, new InterestAnnual(6.5f));
+        operation = new BankOperationCreateInvestment(account2, 100000.0f, new InterestAnnual(6.5f), new Date(2019, 3, 1));
         bank.execute(operation);
     }
 }

@@ -15,7 +15,7 @@ public class BankProductAccount extends BankProduct {
     private int ownerId;
     private Interest interest;          //odsetki
     private Debit debit;
-    //todo: powiązanie konta z lokatami i kredytami. moze listy?
+
     List<BankProductInvestment> investments;
     List<BankProductCredit> credits;
 
@@ -38,5 +38,20 @@ public class BankProductAccount extends BankProduct {
 
     public void addInvestment(BankProductInvestment investment) {
         investments.add(investment);
+    }
+    public void eraseInvestment(BankProductInvestment investment) {
+        investments.remove(investment);
+    }
+    public boolean containsInvestment(BankProductInvestment investment) {
+        return investments.contains(investment);
+    }
+    public void addCredit(BankProductCredit credit) {
+        credits.add(credit);
+    }
+    public boolean containsCredit(BankProductCredit credit) {
+        return credits.contains(credit);
+    }
+    public void eraseCredit(BankProductCredit credit) {
+        credits.remove(credit);
     }
 }

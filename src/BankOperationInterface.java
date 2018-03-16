@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public interface BankOperationInterface {
-    public enum Type { DEPOSIT, WITHDRAW, TRANSFER, CREATE_INVESTMENT }
+    public enum Type { DEPOSIT, WITHDRAW, TRANSFER, CREATE_INVESTMENT, BREAK_INVESTMENT, CREATE_CREDIT, PAY_CREDIT_RATE }
     public enum State {NEW, SUCCESS, FAIL}
     String getDescription();
     Date getDate();

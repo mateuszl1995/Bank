@@ -15,7 +15,7 @@ są środki na jej utworzenie oraz na które wracają środki powiększone o war
 
 Kredyt
 Kredyt działa na odwrotnej zasadzie niż lokata. Również jest powiązany z rachunkiem bankowym,
-który stanowi dla niego miejsce przeznaczenia poży czonych środków, i z którego kredyt ten jest
+który stanowi dla niego miejsce przeznaczenia pożyczonych środków, i z którego kredyt ten jest
 spłacany (dla uproszczenia - w jednej racie równej wysokości kredytu + wysokości odsetek).
 
 Operacje bankowe
