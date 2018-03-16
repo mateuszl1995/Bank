@@ -1,9 +1,13 @@
 public class Bank {
     History history;
 
-    public void execute(BankOperation bankOperation) {
-//        if (bankOperation.execute()) {
-//            history.save(bankOperation);
-//        }
+    Bank() {
+        this.history = new History();
+    }
+
+    public void execute(BankOperationInterface bankOperation) {
+        bankOperation.execute();
+        history.add(bankOperation);
+        System.out.println(bankOperation.getDescription());
     }
 }

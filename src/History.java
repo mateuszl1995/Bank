@@ -11,15 +11,15 @@ public class History {
     }
 
 
-    private List<BankOperation> list = new ArrayList<>();
+    private List<BankOperationInterface> list = new ArrayList<>();
     // <-- takie coś możnaby zrobić zamiast historii banku jako obiekt. minusem jest ze bank moglby byc tylko jeden
     //private static List<BankOperation> bankList = new ArrayList<>();
 
-    public void add(BankOperation operation) {
+    public void add(BankOperationInterface operation) {
         list.add(operation);
     }
 
-    public BankOperation get(int index) {
+    public BankOperationInterface get(int index) {
         return list.get(index);
     }
 

@@ -1,20 +1,49 @@
-﻿BANK
-Bank
-Bank jest instytucją finansową, oferującą klientom produkty bankowe: rachunki bankowe, kredyty, lokaty. Umożliwia zarządzanie środkami i lokowanie ich w tych produktach, zgodnie ze zleceniami właścicieli.
+﻿Bank
+Bank jest instytucją finansową, oferującą klientom produkty bankowe: rachunki bankowe, kredyty, lokaty.
+Umożliwia zarządzanie środkami i lokowanie ich w tych produktach, zgodnie ze zleceniami właścicieli.
+
 Rachunek bankowy
-Rachunek jest produktem umożliwiającym wpłaty, wypłaty, przelewy. Środki na rachunku są oprocentowane zgodnie z aktualnie wybranym systemem odsetek. Rachunek posiada numer (identyfikator) właściciela, datę założenia, aktualne saldo i historię operacji. Rachunek można obciążać do wysokości salda.
+Rachunek jest produktem umożliwiającym wpłaty, wypłaty, przelewy. Środki na rachunku są oprocentowane
+zgodnie z aktualnie wybranym systemem odsetek. Rachunek posiada numer (identyfikator) właściciela,
+datę założenia, aktualne saldo i historię operacji. Rachunek można obciążać do wysokości salda.
+
 Lokata
-Lokata jest specjalnym typem rachunku, na którym umieszczane są środki na określony czas. Odsetki od nich są naliczane dopiero w momencie jej rozwiązania. Zerwanie lokaty powoduje wypłatę środków bez odsetek. Lokata jest powiązana z rachunkiem bankowym, z którego przekazywane są środki na jej utworzenie oraz na które wracają środki pow iększone o wartość odsetek.
+Lokata jest specjalnym typem rachunku, na którym umieszczane są środki na określony czas.
+Odsetki od nich są naliczane dopiero w momencie jej rozwiązania. Zerwanie lokaty powoduje
+wypłatę środków bez odsetek. Lokata jest powiązana z rachunkiem bankowym, z którego przekazywane
+są środki na jej utworzenie oraz na które wracają środki powiększone o wartość odsetek.
+
 Kredyt
-Kredyt działa na odw rotnej zasadzie niż lokata. Również jest powiązany z rachunkiem bankowy m, który stanowi dla niego miejsce przeznaczenia poży czonych środków, i z którego kredyt ten jest spłacany (dla uproszczenia -w jednej racie rów nej wysokości krety tu + wysokości odsetek).
+Kredyt działa na odwrotnej zasadzie niż lokata. Również jest powiązany z rachunkiem bankowym,
+który stanowi dla niego miejsce przeznaczenia poży czonych środków, i z którego kredyt ten jest
+spłacany (dla uproszczenia - w jednej racie równej wysokości kredytu + wysokości odsetek).
+
 Operacje bankowe
-Każda czynność związana ze zmianą stanu produktu bankowego jest operacją bankową, która jest zapisana w historii odpowiedniego produktu bankowego. Operacje bankowe posiadają swój typ (identyfikator typu), datę realizacji i opis.
-Wpłata, wypłata, przelew, naliczenie odsetek, zmiana mechanizmu odsetkowego, założenie lokaty, zerwanie lokaty. zaciągnięcie kredytu, spłata raty kredytu, stworzenie debetu, wy konanie raportu
+Każda czynność związana ze zmianą stanu produktu bankowego jest operacją bankową, która jest zapisana w historii
+odpowiedniego produktu bankowego. Operacje bankowe posiadają swój typ (identyfikator typu), datę realizacji i opis.
+Wpłata, wypłata, przelew, naliczenie odsetek, zmiana mechanizmu odsetkowego, założenie lokaty, zerwanie lokaty,
+zaciągnięcie kredytu, spłata raty kredytu, stworzenie debetu, wykonanie raportu.
+
 Historia
-Każdy produkt banków y posiada swoją historię - uporządkowaną chronologicznie kolekcję wykonanych operacji bankowych Podobna historia istnieje na poziomie całego banku. Zapis do historii w którymkolwiek produkcie bankowy m stanowi jednocześnie zapis do historii banku.
+Każdy produkt bankowy posiada swoją historię - uporządkowaną chronologicznie kolekcję wykonanych operacji bankowych
+Podobna historia istnieje na poziomie całego banku. Zapis do historii w którymkolwiek produkcie bankowym stanowi jednocześnie
+zapis do historii banku.
+
 Odsetki
-Wszystkie produkty mają przypisany mechanizm odsetkowy (jeden z w ielu możliwych), opisujący naliczanie odsetek od aktualnej wartości salda, zadłużenia etc. Mechanizm odsetkowy podaje wartość odsetek w sposób niekoniecznie liniowy
+Wszystkie produkty mają przypisany mechanizm odsetkowy (jeden z wielu możliwych), opisujący naliczanie odsetek od aktualnej
+wartości salda, zadłużenia etc. Mechanizm odsetkowy podaje wartość odsetek w sposób niekoniecznie liniowy.
+
 Debet
-Istnieje możliwość dodania mechanizmu debetowego do wybranych rachunków. Debet w rachunku oznacza, że możliwe jest obciążanie rachunku poniżej wartości salda, do wysokości maksymalnego poziomu ustalonego indywidualnie dla każdego rachunku. W przypadku gdy w rachunku występuje debet, wpłaty na rachunek najpierw zmniejszają wartość debetu, a dopiero po jego wyzerowaniu - zwiększają saldo.
+Istnieje możliwość dodania mechanizmu debetowego do wybranych rachunków. Debet w rachunku oznacza, że możliwe jest
+obciążanie rachunku poniżej wartości salda, do wysokości maksymalnego poziomu ustalonego indywidualnie dla każdego rachunku.
+W przypadku gdy w rachunku występuje debet, wpłaty na rachunek najpierw zmniejszają wartość debetu, a dopiero po jego
+wyzerowaniu - zwiększają saldo.
+
 Raportowanie
-W banku konieczne jest tworzenie raportów o dowolnej strukturze. Raporty mogą mieć postać listy produktów spełniających określone kryterium (np. posiadających wartość powyżej pewnego limitu) albo wartości agregujących określone atry buty wybranych produktów (np. suma aktywów).
+W banku konieczne jest tworzenie raportów o dowolnej strukturze. Raporty mogą mieć postać listy produktów spełniających
+określone kryterium (np. posiadających wartość powyżej pewnego limitu) albo wartości agregujących określone atrybuty
+wybranych produktów (np. suma aktywów).
+
+
+
+

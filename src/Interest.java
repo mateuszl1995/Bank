@@ -1,10 +1,7 @@
 //interest == odsetki;
 //liabilities == zadłużenie
-
-
+import java.util.Date;
 
 public interface Interest {
-    void naliczOdsetki(BankProductInterface product);
-    void countLiabilities(BankProductInterface product);
-
+    float calculateInterest(BankProduct product);
 }
