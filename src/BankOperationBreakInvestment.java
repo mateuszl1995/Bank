@@ -1,9 +1,7 @@
 public class BankOperationBreakInvestment extends BankOperation {
     BankProductInvestment investment;
-    BankProductAccount productSource;
-    BankOperationBreakInvestment(BankProductAccount account, BankProductInvestment investment) {
-        super(account);
-        this.productSource = account;
+    BankOperationBreakInvestment(BankProductInvestment investment) {
+        super(investment.getAccount());
         this.investment = investment;
     }
 
@@ -13,9 +11,20 @@ public class BankOperationBreakInvestment extends BankOperation {
     }
 
     @Override
+    public String getDescription() {
+        return super.getDescription() + "   " + productSource.getBalance();
+    }
+
+    @Override
     protected State executeOperation() {
         if (!productSource.containsInvestment(investment))
             return State.FAIL;
+        if (investment.hasExpired()) {
+            investment.getAmount();
+        } else {
+            investment.getInitialAmount();
+        }
+        productSource.changeBalance(investment.getAmount());
         productSource.eraseInvestment(investment);
         return State.SUCCESS;
     }

@@ -1,18 +1,24 @@
 import java.util.Date;
 
 public class BankProductInvestment extends BankProduct{
-    BankProductInvestment(BankProduct linkedAccount, float amount, Interest interest, Date expires){
+    BankProductInvestment(BankProductAccount linkedAccount, float amount, Interest interest, Date expires){
         super();
         this.linkedAccount = linkedAccount;
         this.interest = interest;
         this.expires = expires;
         this.amount = amount;
+        this.initialAmount = amount;
     }
 
-    private BankProduct linkedAccount;
+    private BankProductAccount linkedAccount;
     private Interest interest;
     private Date expires;
     private float amount;
+    private float initialAmount;
+
+    public float getAmount() { return this.amount;   }
+    public float getInitialAmount() { return this.initialAmount; }
+    public BankProductAccount getAccount() { return this.linkedAccount; }
 
     public Interest getInterest() {
         return interest;

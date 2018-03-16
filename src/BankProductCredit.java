@@ -16,6 +16,7 @@ public class BankProductCredit extends BankProduct {
         this.expires = expires;
     }
 
+    public BankProductAccount getAccount() { return this.linkedAccount; }
     public void payCreditRate() {
         this.amountToPay -= getCreditRate();
     }

@@ -45,6 +45,7 @@ public class BankProductAccount extends BankProduct {
     public boolean containsInvestment(BankProductInvestment investment) {
         return investments.contains(investment);
     }
+    public BankProductInvestment getInvestment(int index) { return investments.get(index); }
     public void addCredit(BankProductCredit credit) {
         credits.add(credit);
     }

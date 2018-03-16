@@ -1,7 +1,7 @@
 public class BankOperationPayCreditRate extends BankOperation {
     BankProductCredit credit;
-    BankOperationPayCreditRate(BankProduct productSource, BankProductCredit credit) {
-        super(productSource);
+    BankOperationPayCreditRate(BankProductCredit credit) {
+        super(credit.getAccount());
         this.credit = credit;
     }
 
