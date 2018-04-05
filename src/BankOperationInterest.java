@@ -1,15 +1,16 @@
 public class BankOperationInterest extends BankOperation {
 
     BankProduct bankProduct;
-/* TODO:
-    BankOperationInterest(BankProduct bankProduct) {
+
+    BankOperationInterest(BankProductAccount account) {
+        super(account);
         // TODO: super(productSource);
     }
-*/
 
     @Override
     protected State executeOperation() {
-
+        // TODO: execute
+        return null;
     }
 
     @Override
