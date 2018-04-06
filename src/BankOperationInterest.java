@@ -9,8 +9,8 @@ public class BankOperationInterest extends BankOperation {
 
     @Override
     protected State executeOperation() {
-        // TODO: execute
-        return null;
+        this.productSource.calculateInterest();
+        return State.SUCCESS;
     }
 
     @Override

@@ -4,16 +4,14 @@ import java.util.List;
 
 public class BankProductAccount extends BankProduct {
     BankProductAccount(int ownerId, Interest interest){
-        super();
+        super(interest);
         this.ownerId = ownerId;
         this.debit = new Debit(0);
-        this.interest = interest;
         this.investments = new ArrayList<BankProductInvestment>();
         this.credits = new ArrayList<BankProductCredit>();
     }
 
     private int ownerId;
-    private Interest interest;          //odsetki
     private Debit debit;
 
     List<BankProductInvestment> investments;
@@ -46,9 +44,8 @@ public class BankProductAccount extends BankProduct {
         return investments.contains(investment);
     }
     public BankProductInvestment getInvestment(int index) { return investments.get(index); }
-    public void addCredit(BankProductCredit credit) {
-        credits.add(credit);
-    }
+    public void addCredit(BankProductCredit credit) { credits.add(credit); }
+    public void removeCredit (BankProductCredit credit) { credits.remove(credit); }
     public boolean containsCredit(BankProductCredit credit) {
         return credits.contains(credit);
     }

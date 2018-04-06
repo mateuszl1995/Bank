@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public abstract class BankOperation implements BankOperationInterface {
-    BankOperation(BankProductAccount productSource){
+    BankOperation(BankProduct productSource){
         this.productSource = productSource;
         this.state = State.NEW;
     }
@@ -10,7 +10,7 @@ public abstract class BankOperation implements BankOperationInterface {
     protected Date date;
     protected Type type;
     protected String description;
-    protected BankProductAccount productSource;
+    protected BankProduct productSource;
 
 
     public void execute() {

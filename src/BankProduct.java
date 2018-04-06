@@ -1,16 +1,18 @@
 import java.util.Date;
 
 public abstract class BankProduct implements BankProductInterface {
-    BankProduct(){
+    BankProduct(Interest interest){
 
         this.balance = 0;
         this.createDate = new Date();
         this.history = new History();
+        this.interest = interest;
     }
 
     protected float balance;              //saldo
     protected Date createDate;
     protected History history;
+    protected Interest interest;
 
     @Override
     public void historyAdd(BankOperation operation) {
@@ -36,4 +38,8 @@ public abstract class BankProduct implements BankProductInterface {
     public History getHistory(){
         return new History(history);
     }
+
+    public void setInterestType(Interest interest) { this.interest = interest; }
+
+    public void calculateInterest() { interest.calculateInterest(this); }
 }

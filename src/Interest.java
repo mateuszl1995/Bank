@@ -3,5 +3,5 @@
 import java.util.Date;
 
 public interface Interest {
-    float calculateInterest(BankProduct product);
+    void calculateInterest(BankProduct product);
 }

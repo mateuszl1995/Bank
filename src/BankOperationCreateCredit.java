@@ -21,6 +21,10 @@ public class BankOperationCreateCredit extends BankOperation {
         return Type.CREATE_CREDIT;
     }
 
+    //    public void addCredit(BankProductCredit credit) {
+//        credits.add(credit);
+//    }
+
     @Override
     protected State executeOperation() {
         credit = new BankProductCredit(productSource, amount, interest, expires);

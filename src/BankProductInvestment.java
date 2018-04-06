@@ -11,7 +11,6 @@ public class BankProductInvestment extends BankProduct{
     }
 
     private BankProductAccount linkedAccount;
-    private Interest interest;
     private Date expires;
     private float amount;
     private float initialAmount;
