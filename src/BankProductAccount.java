@@ -52,4 +52,7 @@ public class BankProductAccount extends BankProduct {
     public void eraseCredit(BankProductCredit credit) {
         credits.remove(credit);
     }
+    public BankProductAccount getAccount() {
+        return this;
+    }
 }

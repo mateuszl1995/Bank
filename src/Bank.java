@@ -6,8 +6,12 @@ public class Bank {
     }
 
     public void execute(BankOperationInterface bankOperation) {
-        bankOperation.execute();
-        history.add(bankOperation);
-        System.out.println(bankOperation.getDescription());
+        try {
+            bankOperation.execute();
+            history.add(bankOperation);
+            System.out.println(bankOperation.getDescription());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

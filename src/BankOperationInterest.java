@@ -1,15 +1,18 @@
 public class BankOperationInterest extends BankOperation {
 
     BankProduct bankProduct;
+    Interest interest;
 
-    BankOperationInterest(BankProductAccount account) {
-        super(account);
-        // TODO: super(productSource);
+    BankOperationInterest(BankProduct bankProduct, Interest interest) {
+        super(bankProduct.getAccount());
+        this.bankProduct = bankProduct;
+        this.interest = interest;
     }
+
 
     @Override
     protected State executeOperation() {
-        this.productSource.calculateInterest();
+        bankProduct.changeBalance(interest.calculateInterest(bankProduct));
         return State.SUCCESS;
     }
 

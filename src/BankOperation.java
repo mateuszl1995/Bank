@@ -13,8 +13,10 @@ public abstract class BankOperation implements BankOperationInterface {
     protected BankProduct productSource;
 
 
-    public void execute() {
+    public void execute () throws DoubleExecutionException {
         try {
+            if (state == State.SUCCESS)
+                throw new DoubleExecutionException();
             state = executeOperation();
             date = new Date();
             productSource.historyAdd(this);
