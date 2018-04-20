@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,10 +7,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class BankProductAccountTest {
-    BankProductAccount account;
-    Interest interest;
-    Client client;
+    BankOperationInterface operation;
+    static BankProductAccount account;
+    static Interest interest;
+    static Client client;
 
+    /*
     @Test
     public void testFirstForExcerciseJunitAndMockito() {
         interest = mock(InterestZero.class);
@@ -23,6 +26,31 @@ public class BankProductAccountTest {
         float x = interest.calculateInterest(account);
         assertEquals(x, 29.0f);
     }
+    */
+
+    @BeforeAll
+    static void initAll() {
+        client = new Client("Lukasz", "Osinski");
+        interest = new InterestZero();
+        account = new BankProductAccount(client, interest);
+    }
+
+    @Test
+    public void testWithdrawSimple () throws BankOperationInterface.DoubleExecutionException {
+        account.setBalance(100.0f);
+        operation = new BankOperationWithdraw(account, 30.0f);
+        operation.execute();
+        assertEquals(account.getBalance(), 70.0f);
+    }
 
 
+    @Test
+    public void testTransferSimple() throws BankOperationInterface.DoubleExecutionException {
+        account.setBalance(50.0f);
+        BankProductAccount destination = new BankProductAccount(new Client("Mateusz", "Lewandowski"), interest);
+        operation = new BankOperationTransfer(account, destination, 30.0f);
+        operation.execute();
+        assertEquals(30.0f, destination.getBalance());
+        assertEquals(20.0f, account.getBalance());
+    }
 }

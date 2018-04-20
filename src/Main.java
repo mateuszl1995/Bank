@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Bank bank = new Bank();
         Client client = new Client("Jan", "Kowalski");
-        BankProductAccount account = new BankProductAccount(client.getId(), new InterestAnnual(2.75f));
-        BankProductAccount account2 = new BankProductAccount(client.getId(), new InterestZero());
+        BankProductAccount account = new BankProductAccount(client, new InterestAnnual(2.75f));
+        BankProductAccount account2 = new BankProductAccount(client, new InterestZero());
 
         BankOperationInterface operation;
 

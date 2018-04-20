@@ -3,15 +3,15 @@ import java.util.Date;
 import java.util.List;
 
 public class BankProductAccount extends BankProduct {
-    BankProductAccount(int ownerId, Interest interest){
+    BankProductAccount(Client client, Interest interest){
         super(interest);
-        this.ownerId = ownerId;
+        this.client = client;
         this.debit = new Debit(0.0f, this, new InterestZero());
         this.investments = new ArrayList<BankProductInvestment>();
         this.credits = new ArrayList<BankProductCredit>();
     }
 
-    private int ownerId;
+    private Client client;
     private Debit debit;
 
     List<BankProductInvestment> investments;
@@ -21,8 +21,8 @@ public class BankProductAccount extends BankProduct {
         return interest;
     }
 
-    public int getOwnerId() {
-        return ownerId;
+    public Client getClient() {
+        return client;
     }
 
     public void setDebit(Debit debit){
