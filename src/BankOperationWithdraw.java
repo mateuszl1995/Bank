@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class BankOperationWithdraw extends BankOperation {
     float amount;
-    BankOperationWithdraw(BankProduct productSource, float amount) {
+    BankOperationWithdraw(BankProductAccount productSource, float amount) {
         super(productSource);
         this.amount = amount;
     }

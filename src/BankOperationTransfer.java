@@ -2,8 +2,8 @@ import java.util.Date;
 
 public class BankOperationTransfer extends BankOperation {
     float amount;
-    BankProduct productDestination;
-    BankOperationTransfer(BankProduct productSource, BankProduct productDestination, float amount) {
+    BankProductAccount productDestination;
+    BankOperationTransfer(BankProductAccount productSource, BankProductAccount productDestination, float amount) {
         super(productSource);
         this.productDestination = productDestination;
         this.amount = amount;

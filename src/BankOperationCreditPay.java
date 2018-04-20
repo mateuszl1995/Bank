@@ -18,7 +18,7 @@ public class BankOperationCreditPay extends BankOperation {
         credit.calculateInterest();
         try {
             productSource.changeBalance(-credit.getBalance());
-            productSource.removeCredit();
+            productSource.removeCredit(credit);
         } catch (Exception e) {
             return State.FAIL;
         }

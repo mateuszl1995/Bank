@@ -13,8 +13,10 @@ public class BankProductAccountTest {
     @Test
     public void testFirstForExcerciseJunitAndMockito() {
         interest = mock(InterestZero.class);
-        when(interest.calculateInterest(account)).thenReturn(30.0f);
         account = new BankProductAccount(103, interest);
+        when(interest.calculateInterest(account)).thenReturn(30.0f);
+
+
         assertNotNull(account);
         assertEquals(2, 2);
         // assertTrue(2 > 2);

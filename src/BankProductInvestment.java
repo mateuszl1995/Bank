@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class BankProductInvestment extends BankProduct{
     BankProductInvestment(BankProductAccount linkedAccount, float amount, Interest interest, Date expires){
-        super();
+        super(interest);
         this.linkedAccount = linkedAccount;
         this.interest = interest;
         this.expires = expires;

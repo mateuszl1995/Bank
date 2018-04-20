@@ -6,7 +6,7 @@ public class BankProductAccount extends BankProduct {
     BankProductAccount(int ownerId, Interest interest){
         super(interest);
         this.ownerId = ownerId;
-        this.debit = new Debit(0);
+        this.debit = new Debit(0.0f, this, new InterestZero());
         this.investments = new ArrayList<BankProductInvestment>();
         this.credits = new ArrayList<BankProductCredit>();
     }
@@ -30,8 +30,8 @@ public class BankProductAccount extends BankProduct {
     }
 
     @Override
-    public void changeBalance(float ammount) {                      //todo: uwzglednić debit
-        super.changeBalance(ammount);
+    public void changeBalance(float amount) {                      //todo: uwzglednić debit
+        super.changeBalance(amount);
     }
 
     public void addInvestment(BankProductInvestment investment) {

@@ -23,8 +23,8 @@ public abstract class BankProduct implements BankProductInterface {
         this.balance = newBalance;
     }
 
-    public void changeBalance(float ammount){
-        balance = balance + ammount;
+    public void changeBalance(float amount){
+        balance = balance + amount;
     }
 
     public Date getDate(){
