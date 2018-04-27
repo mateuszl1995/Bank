@@ -1,18 +1,17 @@
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class BankProductAccount extends BankProduct {
     BankProductAccount(Client client, Interest interest){
         super(interest);
         this.client = client;
-        this.debit = new Debit(0.0f, this, new InterestZero());
+        this.debit = new BankProductAccountWithDebit(0.0f, this, new InterestZero());
         this.investments = new ArrayList<BankProductInvestment>();
         this.credits = new ArrayList<BankProductCredit>();
     }
 
     private Client client;
-    private Debit debit;
+    private BankProductAccountWithDebit debit;
 
     List<BankProductInvestment> investments;
     List<BankProductCredit> credits;
@@ -25,7 +24,7 @@ public class BankProductAccount extends BankProduct {
         return client;
     }
 
-    public void setDebit(Debit debit){
+    public void setDebit(BankProductAccountWithDebit debit){
         this.debit = debit;
     }
 

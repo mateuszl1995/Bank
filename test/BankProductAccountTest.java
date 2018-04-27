@@ -12,21 +12,19 @@ public class BankProductAccountTest {
     static Interest interest;
     static Client client;
 
-    /*
+
     @Test
     public void testFirstForExcerciseJunitAndMockito() {
         interest = mock(InterestZero.class);
-        account = new BankProductAccount(103, interest);
         when(interest.calculateInterest(account)).thenReturn(30.0f);
-
 
         assertNotNull(account);
         assertEquals(2, 2);
         // assertTrue(2 > 2);
         float x = interest.calculateInterest(account);
-        assertEquals(x, 29.0f);
+        assertEquals(x, 30.0f);
     }
-    */
+
 
     @BeforeAll
     static void initAll() {
