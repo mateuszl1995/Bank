@@ -14,6 +14,7 @@ public abstract class BankProduct implements BankProductInterface {
     protected History history;
     protected Interest interest;
 
+
     @Override
     public void historyAdd(BankOperation operation) {
         history.add(operation);
@@ -42,4 +43,5 @@ public abstract class BankProduct implements BankProductInterface {
     public void setInterestType(Interest interest) { this.interest = interest; }
 
     public void calculateInterest() { interest.calculateInterest(this); }
+
 }

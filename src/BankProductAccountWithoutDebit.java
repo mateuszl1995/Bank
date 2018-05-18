@@ -22,6 +22,9 @@ public class BankProductAccountWithoutDebit extends BankProduct implements BankP
         return client;
     }
 
+    public void acceptReport(ReportVisitorInterface visitor) {
+        visitor.visit(this);
+    }
 
     @Override
     public void changeBalance(float amount) {                      //todo: uwzglednić debit

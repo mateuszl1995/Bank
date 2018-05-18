@@ -14,4 +14,7 @@ public class BankProductCredit extends BankProduct {
 
     public BankProductAccount getAccount() { return this.linkedAccount; }
 
+    public void acceptReport(ReportVisitorInterface visitor) {
+        visitor.visit(this);
+    }
 }

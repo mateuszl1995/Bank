@@ -44,6 +44,10 @@ public class BankProductAccountWithDebit implements BankProductAccount, BankProd
     }
     public void setBalance(float x) {account.setBalance(x); debit = 0;}
 
+    public void acceptReport(ReportVisitorInterface visitor) {
+        visitor.visit(this);
+    }
+
     @Override
     public void historyAdd(BankOperation operation) {
         account.historyAdd(operation);

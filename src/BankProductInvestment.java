@@ -30,4 +30,8 @@ public class BankProductInvestment extends BankProduct{
         else return false;
     }
 
+    @Override
+    public void acceptReport(ReportVisitorInterface visitor) {
+        visitor.visit(this);
+    }
 }
