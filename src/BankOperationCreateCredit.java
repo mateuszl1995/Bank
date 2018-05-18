@@ -26,7 +26,7 @@ public class BankOperationCreateCredit extends BankOperation {
 //    }
 
     @Override
-    protected State executeOperation() {
+    protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         credit = new BankProductCredit(productSource, amount, interest, expires);
         BankOperation op = new BankOperationDeposit(productSource, amount);
         op.executeOperation();

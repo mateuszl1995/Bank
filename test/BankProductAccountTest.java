@@ -30,11 +30,11 @@ public class BankProductAccountTest {
     static void initAll() {
         client = new Client("Lukasz", "Osinski");
         interest = new InterestZero();
-        account = new BankProductAccount(client, interest);
+        account = new BankProductAccountWithoutDebit(client, interest);
     }
 
     @Test
-    public void testWithdrawSimple () throws BankOperationInterface.DoubleExecutionException {
+    public void testWithdrawSimple () throws BankOperationInterface.DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
         account.setBalance(100.0f);
         operation = new BankOperationWithdraw(account, 30.0f);
         operation.execute();
@@ -43,9 +43,9 @@ public class BankProductAccountTest {
 
 
     @Test
-    public void testTransferSimple() throws BankOperationInterface.DoubleExecutionException {
+    public void testTransferSimple() throws BankOperationInterface.DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
         account.setBalance(50.0f);
-        BankProductAccount destination = new BankProductAccount(new Client("Mateusz", "Lewandowski"), interest);
+        BankProductAccount destination = new BankProductAccountWithoutDebit(new Client("Mateusz", "Lewandowski"), interest);
         operation = new BankOperationTransfer(account, destination, 30.0f);
         operation.execute();
         assertEquals(30.0f, destination.getBalance());

@@ -5,7 +5,7 @@ public class Bank {
         this.history = new History();
     }
 
-    public void execute(BankOperationInterface bankOperation) {
+    public void execute(BankOperationInterface bankOperation) throws BankProductAccountWithDebit.NotEnoughMoneyException {
         try {
             bankOperation.execute();
             history.add(bankOperation);

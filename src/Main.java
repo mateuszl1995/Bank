@@ -2,11 +2,11 @@ import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BankProductAccountWithDebit.NotEnoughMoneyException {
         Bank bank = new Bank();
         Client client = new Client("Jan", "Kowalski");
-        BankProductAccount account = new BankProductAccount(client, new InterestAnnual(2.75f));
-        BankProductAccount account2 = new BankProductAccount(client, new InterestZero());
+        BankProductAccount account = new BankProductAccountWithoutDebit(client, new InterestAnnual(2.75f));
+        BankProductAccount account2 = new BankProductAccountWithoutDebit(client, new InterestZero());
 
         BankOperationInterface operation;
 

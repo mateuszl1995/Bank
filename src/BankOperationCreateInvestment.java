@@ -26,7 +26,7 @@ public class BankOperationCreateInvestment extends BankOperation {
     }
 
     @Override
-    protected State executeOperation() {
+    protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         if (productSource.getBalance() < amount)
             return State.FAIL;
         investment = new BankProductInvestment(productSource, amount, interest, expires);

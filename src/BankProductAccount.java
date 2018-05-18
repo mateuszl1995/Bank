@@ -1,57 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankProductAccount extends BankProduct {
-    BankProductAccount(Client client, Interest interest){
-        super(interest);
-        this.client = client;
-        this.debit = new BankProductAccountWithDebit(0.0f, this, new InterestZero());
-        this.investments = new ArrayList<BankProductInvestment>();
-        this.credits = new ArrayList<BankProductCredit>();
-    }
+public interface BankProductAccount extends BankProductInterface {
+    
 
-    private Client client;
-    private BankProductAccountWithDebit debit;
+    public Interest getInterest();
+    public Client getClient();
 
-    List<BankProductInvestment> investments;
-    List<BankProductCredit> credits;
+    public float getBalance();
+    public void setBalance(float balance);
+    public void changeBalance(float amount) throws BankProductAccountWithDebit.NotEnoughMoneyException;
 
-    public Interest getInterest() {
-        return interest;
-    }
+    public void addInvestment(BankProductInvestment investment);
 
-    public Client getClient() {
-        return client;
-    }
+    public void eraseInvestment(BankProductInvestment investment);
 
-    public void setDebit(BankProductAccountWithDebit debit){
-        this.debit = debit;
-    }
+    public boolean containsInvestment(BankProductInvestment investment);
+    public BankProductInvestment getInvestment(int index);
+    public void addCredit(BankProductCredit credit);
+    public void removeCredit (BankProductCredit credit);
+    public boolean containsCredit(BankProductCredit credit);
+    public void eraseCredit(BankProductCredit credit);
+    public BankProductAccount getAccount();
 
-    @Override
-    public void changeBalance(float amount) {                      //todo: uwzglednić debit
-        super.changeBalance(amount);
-    }
 
-    public void addInvestment(BankProductInvestment investment) {
-        investments.add(investment);
-    }
-    public void eraseInvestment(BankProductInvestment investment) {
-        investments.remove(investment);
-    }
-    public boolean containsInvestment(BankProductInvestment investment) {
-        return investments.contains(investment);
-    }
-    public BankProductInvestment getInvestment(int index) { return investments.get(index); }
-    public void addCredit(BankProductCredit credit) { credits.add(credit); }
-    public void removeCredit (BankProductCredit credit) { credits.remove(credit); }
-    public boolean containsCredit(BankProductCredit credit) {
-        return credits.contains(credit);
-    }
-    public void eraseCredit(BankProductCredit credit) {
-        credits.remove(credit);
-    }
-    public BankProductAccount getAccount() {
-        return this;
-    }
+    void historyAdd(BankOperation bankOperation);
 }

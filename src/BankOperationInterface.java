@@ -9,5 +9,5 @@ public interface BankOperationInterface {
     Date getDate();
     Type getType();
     State getState();
-    void execute() throws DoubleExecutionException;
+    void execute() throws DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException;
 }

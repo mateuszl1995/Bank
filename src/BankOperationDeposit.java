@@ -8,7 +8,7 @@ public class BankOperationDeposit extends BankOperation {
     }
 
     @Override
-    protected State executeOperation() {
+    protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         float balance = productSource.getBalance();
         productSource.changeBalance(amount);
         return State.SUCCESS;

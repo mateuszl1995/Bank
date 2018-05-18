@@ -24,7 +24,11 @@ public class BankOperationBreakInvestment extends BankOperation {
         } else {
             investment.getInitialAmount();
         }
-        productSource.changeBalance(investment.getAmount());
+        try {
+            productSource.changeBalance(investment.getAmount());
+        } catch (BankProductAccountWithDebit.NotEnoughMoneyException e) {
+            e.printStackTrace();
+        }
         productSource.eraseInvestment(investment);
         return State.SUCCESS;
     }

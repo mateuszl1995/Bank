@@ -6,9 +6,13 @@ public class BankOperationWithdraw extends BankOperation {
         super(productSource);
         this.amount = amount;
     }
+    BankOperationWithdraw(BankProductAccountWithDebit productSource, float amount) {
+        super(productSource);
+        this.amount = amount;
+    }
 
     @Override
-    protected State executeOperation() {
+    protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         float balance = productSource.getBalance();
         if (balance < amount)
             return State.FAIL;

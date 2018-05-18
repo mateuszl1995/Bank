@@ -6,6 +6,7 @@ public abstract class BankOperation implements BankOperationInterface {
         this.state = State.NEW;
     }
 
+
     protected State state;
     protected Date date;
     protected Type type;
@@ -13,7 +14,7 @@ public abstract class BankOperation implements BankOperationInterface {
     protected BankProductAccount productSource;
 
 
-    public void execute () throws DoubleExecutionException {
+    public void execute () throws DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
         try {
             if (state == State.SUCCESS)
                 throw new DoubleExecutionException();
@@ -26,7 +27,7 @@ public abstract class BankOperation implements BankOperationInterface {
         }
     }
 
-    protected abstract State executeOperation();
+    protected abstract State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException;
 
     public Date getDate() {
         return this.date;

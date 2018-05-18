@@ -5,8 +5,10 @@ public class InterestAnnual implements Interest {
     }
 
     @Override
-    public float calculateInterest(BankProduct product) {
+    public float calculateInterest(BankProductInterface product) {
        float balance = product.getBalance();
        return percentage*product.getBalance();
     }
+
+
 }

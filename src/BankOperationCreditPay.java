@@ -14,7 +14,7 @@ public class BankOperationCreditPay extends BankOperation {
     }
 
     @Override
-    protected State executeOperation() {
+    protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         credit.calculateInterest();
         try {
             productSource.changeBalance(-credit.getBalance());
