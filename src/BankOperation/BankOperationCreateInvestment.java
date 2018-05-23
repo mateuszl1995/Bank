@@ -1,8 +1,7 @@
 package BankOperation;
 
-import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
-import BankProduct.BankProductInvestment;
+import BankProduct.Decorators.BankProductAccountWithDebit;
+import BankProduct.Investment;
 import Interest.Interest;
 
 import java.util.Date;
@@ -10,7 +9,7 @@ import java.util.Date;
 public class BankOperationCreateInvestment extends BankOperation {
     float amount;
     Interest interest;
-    BankProductInvestment investment;
+    Investment investment;
     BankProductAccount productSource;
     Date expires;
 
@@ -36,7 +35,7 @@ public class BankOperationCreateInvestment extends BankOperation {
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         if (productSource.getBalance() < amount)
             return State.FAIL;
-        investment = new BankProductInvestment(productSource, amount, interest, expires);
+        investment = new Investment(productSource, amount, interest, expires);
         BankOperation op = new BankOperationWithdraw(productSource, amount);
         op.executeOperation();
         productSource.addInvestment(investment);

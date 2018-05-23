@@ -6,7 +6,7 @@ import Interest.Interest;
 
 import java.util.Date;
 
-public abstract class BankProduct implements BankProductInterface {
+public abstract class BankProduct implements BankProductAccount {
     BankProduct(Interest interest){
         this.balance = 0;
         this.createDate = new Date();
@@ -28,6 +28,11 @@ public abstract class BankProduct implements BankProductInterface {
 
     public long getNumber() {
         return number;
+    }
+
+    @Override
+    public Interest getInterest() {
+        return interest;
     }
 
     @Override

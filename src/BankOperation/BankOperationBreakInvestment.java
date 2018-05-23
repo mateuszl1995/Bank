@@ -1,11 +1,11 @@
 package BankOperation;
 
-import BankProduct.BankProductAccountWithDebit;
-import BankProduct.BankProductInvestment;
+import BankProduct.Decorators.BankProductAccountWithDebit;
+import BankProduct.Investment;
 
 public class BankOperationBreakInvestment extends BankOperation {
-    BankProductInvestment investment;
-    public BankOperationBreakInvestment(BankProductInvestment investment) {
+    Investment investment;
+    public BankOperationBreakInvestment(Investment investment) {
         super(investment.getAccount());
         this.investment = investment;
     }

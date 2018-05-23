@@ -1,8 +1,7 @@
 package Bank;
 
 import BankOperation.*;
-import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import BankProduct.BankProductAccountWithoutDebit;
 import Interest.InterestAnnual;
 import Interest.InterestZero;

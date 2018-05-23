@@ -2,7 +2,7 @@ package Bank;
 
 import BankOperation.BankOperationInterface;
 import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 import java.util.ArrayList;
 

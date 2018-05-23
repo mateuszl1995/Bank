@@ -1,14 +1,14 @@
 package Report;
 
-import BankProduct.BankProductAccountWithDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import BankProduct.BankProductAccountWithoutDebit;
-import BankProduct.BankProductCredit;
-import BankProduct.BankProductInvestment;
+import BankProduct.Credit;
+import BankProduct.Investment;
 
 public interface ReportVisitorInterface {
 
     void visit(BankProductAccountWithDebit product);
     void visit(BankProductAccountWithoutDebit product);
-    void visit(BankProductCredit product);
-    void visit(BankProductInvestment product);
+    void visit(Credit product);
+    void visit(Investment product);
 }

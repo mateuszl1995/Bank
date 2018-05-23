@@ -1,8 +1,7 @@
 package BankOperation;
 
-import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
-import BankProduct.BankProductCredit;
+import BankProduct.Credit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.Interest;
 
 import java.util.Date;
@@ -11,7 +10,7 @@ public class BankOperationCreateCredit extends BankOperation {
 
     float amount;
     Interest interest;
-    BankProductCredit credit;
+    Credit credit;
     BankProductAccount productSource;
     Date expires;
 
@@ -28,13 +27,13 @@ public class BankOperationCreateCredit extends BankOperation {
         return Type.CREATE_CREDIT;
     }
 
-    //    public void addCredit(BankProduct.BankProductCredit credit) {
+    //    public void addCredit(BankProduct.Credit credit) {
 //        credits.add(credit);
 //    }
 
     @Override
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        credit = new BankProductCredit(productSource, amount, interest, expires);
+        credit = new Credit(productSource, amount, interest, expires);
         BankOperation op = new BankOperationDeposit(productSource, amount);
         op.executeOperation();
         productSource.addCredit(credit);

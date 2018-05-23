@@ -1,6 +1,7 @@
 package Report;
 
 import BankProduct.*;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 import java.util.ArrayList;
 
@@ -11,16 +12,16 @@ public class ReportVisitorBankBalance implements ReportVisitorInterface {
 
     protected float balance;
 
-    public float getReport(ArrayList<BankProductInterface> inputList) {
+    public float getReport(ArrayList<BankProductAccount> inputList) {
         balance = 0;
-        for (BankProductInterface product : inputList){
+        for (BankProductAccount product : inputList){
             product.acceptReport(this);
         }
         return balance;
     }
 
     @Override
-    public void visit(BankProductInvestment product) {
+    public void visit(BankProduct.Investment product) {
         balance+=product.getBalance();
     }
 
@@ -35,7 +36,7 @@ public class ReportVisitorBankBalance implements ReportVisitorInterface {
     }
 
     @Override
-    public void visit(BankProductCredit product) {
+    public void visit(BankProduct.Credit product) {
         balance+=product.getBalance();
     }
 }

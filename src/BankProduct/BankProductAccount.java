@@ -2,9 +2,11 @@ package BankProduct;
 
 import Bank.Client;
 import BankOperation.BankOperation;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.Interest;
+import Report.ReportVisitorInterface;
 
-public interface BankProductAccount extends BankProductInterface {
+public interface BankProductAccount{
     
     long getNumber();
     Interest getInterest();
@@ -14,17 +16,19 @@ public interface BankProductAccount extends BankProductInterface {
     void setBalance(float balance);
     void changeBalance(float amount) throws BankProductAccountWithDebit.NotEnoughMoneyException;
 
-    void addInvestment(BankProductInvestment investment);
+    void addInvestment(BankProduct.Investment investment);
+    void eraseInvestment(BankProduct.Investment investment);
+    boolean containsInvestment(BankProduct.Investment investment);
+    BankProduct.Investment getInvestment(int index);
 
-    void eraseInvestment(BankProductInvestment investment);
+    void addCredit(BankProduct.Credit credit);
+    void removeCredit(BankProduct.Credit credit);
+    boolean containsCredit(BankProduct.Credit credit);
+    void eraseCredit(BankProduct.Credit credit);
 
-    boolean containsInvestment(BankProductInvestment investment);
-    BankProductInvestment getInvestment(int index);
-    void addCredit(BankProductCredit credit);
-    void removeCredit(BankProductCredit credit);
-    boolean containsCredit(BankProductCredit credit);
-    void eraseCredit(BankProductCredit credit);
     BankProductAccount getAccount();
+
+    void acceptReport(ReportVisitorInterface visitor);
 
 
     void historyAdd(BankOperation bankOperation);

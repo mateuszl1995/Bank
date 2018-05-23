@@ -1,6 +1,7 @@
 package Report;
 
 import BankProduct.*;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +9,12 @@ import java.util.List;
 public class ReportVisitorBelowZero implements ReportVisitorInterface {
     ReportVisitorBelowZero(){}
 
-    protected List<BankProductInterface> matchingProducts;
+    protected List<BankProductAccount> matchingProducts;
 
 
-    public List<BankProductInterface> getReport(List<BankProductInterface>inputList){
+    public List<BankProductAccount> getReport(List<BankProductAccount>inputList){
         matchingProducts = new ArrayList<>();
-        for (BankProductInterface product : inputList) {
+        for (BankProductAccount product : inputList) {
             product.acceptReport(this);
         }
         return matchingProducts;
@@ -31,12 +32,12 @@ public class ReportVisitorBelowZero implements ReportVisitorInterface {
     }
 
     @Override
-    public void visit(BankProductInvestment product) {
+    public void visit(BankProduct.Investment product) {
 
     }
 
     @Override
-    public void visit(BankProductCredit product) {
+    public void visit(BankProduct.Credit product) {
 
     }
 }

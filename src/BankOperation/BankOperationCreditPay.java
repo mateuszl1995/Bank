@@ -1,13 +1,12 @@
 package BankOperation;
 
-import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
-import BankProduct.BankProductCredit;
+import BankProduct.Credit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public class BankOperationCreditPay extends BankOperation {
-    BankProductCredit credit;
+    Credit credit;
     BankProductAccount source;
-    BankOperationCreditPay(BankProductCredit credit) {
+    BankOperationCreditPay(Credit credit) {
         super(credit.getAccount());
         this.source = productSource;
         productSource = null;

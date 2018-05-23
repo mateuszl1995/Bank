@@ -1,7 +1,7 @@
 package Interest;//interest == odsetki;
 //liabilities == zadłużenie
-import BankProduct.BankProductInterface;
+import BankProduct.BankProductAccount;
 
 public interface Interest {
-    float calculateInterest(BankProductInterface product);
+    float calculateInterest(BankProductAccount product);
 }

@@ -1,8 +1,6 @@
 package BankOperation;
 
-import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
-import BankProduct.BankProductInterface;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public class BankOperationWithdraw extends BankOperation {
     float amount;

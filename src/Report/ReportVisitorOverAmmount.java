@@ -1,6 +1,7 @@
 package Report;
 
 import BankProduct.*;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,18 +11,18 @@ public class ReportVisitorOverAmmount implements ReportVisitorInterface {
         this.amount = amount;
     }
     protected float amount;
-    protected List<BankProductInterface> matchingProducts;
+    protected List<BankProductAccount> matchingProducts;
 
-    public List<BankProductInterface> getReport(ArrayList<BankProductInterface> inputList) {
+    public List<BankProductAccount> getReport(ArrayList<BankProductAccount> inputList) {
         matchingProducts = new ArrayList<>();
-        for (BankProductInterface product : inputList) {
+        for (BankProductAccount product : inputList) {
             product.acceptReport(this);
         }
         return matchingProducts;
     }
 
     @Override
-    public void visit(BankProductCredit product) {
+    public void visit(BankProduct.Credit product) {
         if (product.getBalance() > amount)
             this.matchingProducts.add(product);
     }
@@ -39,7 +40,7 @@ public class ReportVisitorOverAmmount implements ReportVisitorInterface {
     }
 
     @Override
-    public void visit(BankProductInvestment product) {
+    public void visit(BankProduct.Investment product) {
         if (product.getBalance() > amount)
             this.matchingProducts.add(product);
     }

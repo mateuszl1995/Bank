@@ -1,12 +1,10 @@
 import Bank.Client;
 import BankOperation.BankOperation;
 import BankOperation.BankOperationWithdraw;
-import BankProduct.BankProductAccount;
-import BankProduct.BankProductAccountWithDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import BankProduct.BankProductAccountWithoutDebit;
 import Interest.InterestZero;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 

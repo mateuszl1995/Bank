@@ -1,7 +1,7 @@
 package Bank;
 
 import BankOperation.BankOperationInterface;
-import BankProduct.BankProductAccountWithDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public interface BankMediatorInterface {
 
