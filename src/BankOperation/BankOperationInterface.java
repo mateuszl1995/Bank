@@ -1,5 +1,6 @@
 package BankOperation;
 
+import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithDebit;
 
 import java.util.Date;
@@ -14,4 +15,7 @@ public interface BankOperationInterface {
     Type getType();
     State getState();
     void execute() throws DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException;
+    void setProductDestination(BankProductAccount productDestination);
+    BankProductAccount getProductSource();
+    Long getDestinationNumber();
 }

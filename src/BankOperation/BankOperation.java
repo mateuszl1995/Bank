@@ -2,6 +2,7 @@ package BankOperation;
 
 import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductInterface;
 
 import java.util.Date;
 
@@ -11,13 +12,26 @@ public abstract class BankOperation implements BankOperationInterface {
         this.state = State.NEW;
     }
 
-
     protected State state;
     protected Date date;
     protected Type type;
     protected String description;
     protected BankProductAccount productSource;
+    protected BankProductAccount productDestination = null;
+    protected Long destinationNumber = null;
 
+    public Long getDestinationNumber() {
+        return destinationNumber;
+    }
+
+    public BankProductAccount getProductSource() {
+        return productSource;
+    }
+
+    @Override
+    public void setProductDestination(BankProductAccount productDestination) {
+        this.productDestination = productDestination;
+    }
 
     public void execute () throws DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
         try {

@@ -2,10 +2,11 @@ package BankOperation;
 
 import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductInterface;
 
 public class BankOperationWithdraw extends BankOperation {
     float amount;
-    BankOperationWithdraw(BankProductAccount productSource, float amount) {
+    public BankOperationWithdraw(BankProductAccount productSource, float amount) {
         super(productSource);
         this.amount = amount;
     }

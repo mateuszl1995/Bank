@@ -4,7 +4,7 @@ import BankProduct.BankProductInterface;
 
 public class InterestAnnual implements Interest {
     private float percentage; // TODO: change to more precise data-type
-    InterestAnnual(float percentage) {
+    public InterestAnnual(float percentage) {
         this.percentage = percentage/100;
     }
 

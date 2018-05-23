@@ -5,7 +5,7 @@ import BankProduct.BankProductAccountWithDebit;
 
 public class BankOperationDeposit extends BankOperation {
     float amount;
-    BankOperationDeposit(BankProductAccount productSource, float amount) {
+    public BankOperationDeposit(BankProductAccount productSource, float amount) {
         super(productSource);
         this.amount = amount;
     }

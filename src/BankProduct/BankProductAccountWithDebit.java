@@ -23,6 +23,11 @@ public class BankProductAccountWithDebit implements BankProductAccount, BankProd
 
 
     @Override
+    public long getNumber() {
+        return 0;
+    }
+
+    @Override
     public Interest getInterest() {
         return account.getInterest();
     }

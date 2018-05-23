@@ -1,24 +1,54 @@
 package Bank;
 
 import BankOperation.BankOperationInterface;
+import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithDebit;
-import BankProduct.BankProductInterface;
 
 import java.util.ArrayList;
 
-public class Bank {
+public class Bank implements BankInterface{
     History history;
-    ArrayList<BankProductInterface> accountsList;
+    ArrayList<BankProductAccount> accountsList;
+    BankMediatorInterface mediator;
 
-    public Bank() {
+    public Bank(BankMediatorInterface mediator) {
         this.history = new History();
+        this.mediator = mediator;
+    }
+
+    public ArrayList<BankProductAccount> getAccountsList() {
+        return accountsList;
+    }
+
+    public void addAccount(BankProductAccount product){
+        accountsList.add(product);
+    }
+
+    public BankProductAccount getBankProduct(long number){
+        for (BankProductAccount bankProduct : accountsList){
+            if (bankProduct.getNumber() == number){
+                return bankProduct;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void addToHistory(BankOperationInterface operation) {
+        history.add(operation);
     }
 
     public void execute(BankOperationInterface bankOperation) throws BankProductAccountWithDebit.NotEnoughMoneyException {
         try {
-            bankOperation.execute();
-            history.add(bankOperation);
-            System.out.println(bankOperation.getDescription());
+            Long destinationNumber = bankOperation.getDestinationNumber();
+            if (getBankProduct(destinationNumber) != null) {
+                bankOperation.setProductDestination(getBankProduct(destinationNumber));
+                bankOperation.execute();
+                history.add(bankOperation);
+            }
+            else {
+                mediator.executeOperation(bankOperation, this);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

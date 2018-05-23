@@ -8,4 +8,5 @@ public interface BankProductInterface {
     BankProductAccount getAccount();
     public float getBalance();
     void acceptReport(ReportVisitorInterface visitor);
+    long getNumber();
 }

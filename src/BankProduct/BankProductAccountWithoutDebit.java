@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankProductAccountWithoutDebit extends BankProduct implements BankProductAccount {
-    BankProductAccountWithoutDebit(Client client, Interest interest){
+    public BankProductAccountWithoutDebit(Client client, Interest interest){
         super(interest);
         this.client = client;
         this.investments = new ArrayList<BankProductInvestment>();

@@ -12,7 +12,12 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        Bank bank = new Bank();
+        BankMediator mediator = new BankMediator();
+        Bank bank2 = new Bank(mediator);
+        Bank bank = new Bank(mediator);
+        mediator.addBank(bank);
+        mediator.addBank(bank2);
+
         Client client = new Client("Jan", "Kowalski");
         BankProductAccount account = new BankProductAccountWithoutDebit(client, new InterestAnnual(2.75f));
         BankProductAccount account2 = new BankProductAccountWithoutDebit(client, new InterestZero());
@@ -31,7 +36,7 @@ public class Main {
         operation = new BankOperationWithdraw(account, 550.0f);
         bank.execute(operation);
 
-        operation = new BankOperationTransfer(account, account2, 300.0f);
+        operation = new BankOperationTransfer(account, account2.getNumber(), 300.0f);
         bank.execute(operation);
 
         operation = new BankOperationWithdraw(account2, 250.0f);
@@ -40,7 +45,7 @@ public class Main {
         operation = new BankOperationDeposit(account2, 200000.0f);
         bank.execute(operation);
 
-        operation = new BankOperationTransfer(account2, account, 300.0f);
+        operation = new BankOperationTransfer(account2, account2.getNumber(), 300.0f);
         bank.execute(operation);
 
         operation = new BankOperationWithdraw(account2, 250.0f);

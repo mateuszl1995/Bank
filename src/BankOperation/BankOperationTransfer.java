@@ -4,11 +4,12 @@ import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithDebit;
 
 public class BankOperationTransfer extends BankOperation {
+
     float amount;
-    BankProductAccount productDestination;
-    BankOperationTransfer(BankProductAccount productSource, BankProductAccount productDestination, float amount) {
+
+    public BankOperationTransfer(BankProductAccount productSource, long destinationNumber, float amount) {
         super(productSource);
-        this.productDestination = productDestination;
+        this.destinationNumber = destinationNumber;
         this.amount = amount;
     }
 
