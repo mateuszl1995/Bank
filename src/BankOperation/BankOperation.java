@@ -1,3 +1,8 @@
+package BankOperation;
+
+import BankProduct.BankProductAccount;
+import BankProduct.BankProductAccountWithDebit;
+
 import java.util.Date;
 
 public abstract class BankOperation implements BankOperationInterface {

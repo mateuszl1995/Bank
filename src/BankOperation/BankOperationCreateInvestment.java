@@ -1,3 +1,10 @@
+package BankOperation;
+
+import BankProduct.BankProductAccount;
+import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductInvestment;
+import Interest.Interest;
+
 import java.util.Date;
 
 public class BankOperationCreateInvestment extends BankOperation {

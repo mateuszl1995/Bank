@@ -1,3 +1,8 @@
+package BankOperation;
+
+import BankProduct.BankProduct;
+import Interest.Interest;
+
 public class BankOperationInterest extends BankOperation {
 
     BankProduct bankProduct;

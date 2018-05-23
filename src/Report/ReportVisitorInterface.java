@@ -1,4 +1,9 @@
-import java.util.ArrayList;
+package Report;
+
+import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductAccountWithoutDebit;
+import BankProduct.BankProductCredit;
+import BankProduct.BankProductInvestment;
 
 public interface ReportVisitorInterface {
 

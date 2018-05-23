@@ -1,5 +1,5 @@
-﻿Bank 
-Bank jest instytucją finansową, oferującą klientom produkty bankowe: rachunki bankowe, kredyty, lokaty.
+﻿Bank.Bank
+Bank.Bank jest instytucją finansową, oferującą klientom produkty bankowe: rachunki bankowe, kredyty, lokaty.
 Umożliwia zarządzanie środkami i lokowanie ich w tych produktach, zgodnie ze zleceniami właścicieli.
 
 Rachunek bankowy

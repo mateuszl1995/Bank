@@ -1,3 +1,7 @@
+package Interest;
+
+import BankProduct.BankProductInterface;
+
 public class InterestZero implements Interest{
 
 

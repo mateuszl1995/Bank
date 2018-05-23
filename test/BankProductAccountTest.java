@@ -1,3 +1,12 @@
+import Bank.Client;
+import BankOperation.BankOperationInterface;
+import BankOperation.BankOperationTransfer;
+import BankOperation.BankOperationWithdraw;
+import BankProduct.BankProductAccount;
+import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductAccountWithoutDebit;
+import Interest.Interest;
+import Interest.InterestZero;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

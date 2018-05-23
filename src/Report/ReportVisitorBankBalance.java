@@ -1,3 +1,7 @@
+package Report;
+
+import BankProduct.*;
+
 import java.util.ArrayList;
 
 public class ReportVisitorBankBalance implements ReportVisitorInterface {

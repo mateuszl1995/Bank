@@ -1,3 +1,5 @@
+package Bank;
+
 public class Client {
     static int idSequence = 0;
     static int getIdSequence() {

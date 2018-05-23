@@ -2,7 +2,7 @@ Mediator - przesyłanie do innych banków
 NIEZROBIONE
 
 Visitor - system raportów podobny do tego na wykładzie. Stworzyć nowe klasy tworzące nowe raporty. Visitor zbiera informacje z różnych produktów bankowych. (3 różne visitory z testami)
-NIEZROBIONE
+ZROBIONE (bez testów)
 
 Dekorator - AccountWithDebit rozszerza Account
 NIEZROBIONE
@@ -10,7 +10,7 @@ NIEZROBIONE
 Command - bank operation jako klasy
 ZROBIONE
 
-State - naliczanie odsetek (w zależności co ma podpięte, jakie Interest, to nalicza różne odsetki)
+State - naliczanie odsetek (w zależności co ma podpięte, jakie Interest.Interest, to nalicza różne odsetki)
 ZROBIONE
 
 Testy do każdego wzorca (przykładowe testy)

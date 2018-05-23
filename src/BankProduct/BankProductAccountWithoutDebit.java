@@ -1,3 +1,9 @@
+package BankProduct;
+
+import Bank.Client;
+import Interest.Interest;
+import Report.ReportVisitorInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 

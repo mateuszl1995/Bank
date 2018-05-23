@@ -1,6 +1,6 @@
-//interest == odsetki;
+package Interest;//interest == odsetki;
 //liabilities == zadłużenie
-import java.util.Date;
+import BankProduct.BankProductInterface;
 
 public interface Interest {
     float calculateInterest(BankProductInterface product);

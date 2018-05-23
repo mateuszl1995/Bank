@@ -1,3 +1,7 @@
+package BankOperation;
+
+import BankProduct.BankProductAccountWithDebit;
+
 import java.util.Date;
 
 public interface BankOperationInterface {

@@ -1,4 +1,7 @@
-import java.util.Date;
+package BankOperation;
+
+import BankProduct.BankProductAccount;
+import BankProduct.BankProductAccountWithDebit;
 
 public class BankOperationTransfer extends BankOperation {
     float amount;

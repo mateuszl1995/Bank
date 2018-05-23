@@ -1,3 +1,8 @@
+package BankProduct;
+
+import Report.ReportVisitorInterface;
+import Interest.Interest;
+
 import java.util.Date;
 
 public class BankProductCredit extends BankProduct {

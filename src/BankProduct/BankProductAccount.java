@@ -1,5 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
+package BankProduct;
+
+import Bank.Client;
+import BankOperation.BankOperation;
+import Interest.Interest;
 
 public interface BankProductAccount extends BankProductInterface {
     

@@ -1,3 +1,10 @@
+package BankOperation;
+
+import BankProduct.BankProductAccount;
+import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductCredit;
+import Interest.Interest;
+
 import java.util.Date;
 
 public class BankOperationCreateCredit extends BankOperation {
@@ -21,7 +28,7 @@ public class BankOperationCreateCredit extends BankOperation {
         return Type.CREATE_CREDIT;
     }
 
-    //    public void addCredit(BankProductCredit credit) {
+    //    public void addCredit(BankProduct.BankProductCredit credit) {
 //        credits.add(credit);
 //    }
 

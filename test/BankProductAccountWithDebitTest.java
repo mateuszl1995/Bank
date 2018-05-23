@@ -1,3 +1,10 @@
+import Bank.Client;
+import BankOperation.BankOperation;
+import BankOperation.BankOperationWithdraw;
+import BankProduct.BankProductAccount;
+import BankProduct.BankProductAccountWithDebit;
+import BankProduct.BankProductAccountWithoutDebit;
+import Interest.InterestZero;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,7 +26,7 @@ public class BankProductAccountWithDebitTest {
     }
 
     @Test
-    public void testWithdrawSimple () throws BankOperationInterface.DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
+    public void testWithdrawSimple () throws BankOperation.BankOperationInterface.DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
         account = new BankProductAccountWithDebit(new BankProductAccountWithoutDebit(new Client("Mateusz", "Lewandowski"), new InterestZero()), 100.0f);
         account.setBalance(300.0f);
         operation = new BankOperationWithdraw(account, 30.0f);
@@ -32,7 +39,7 @@ public class BankProductAccountWithDebitTest {
     }
 
     @Test
-    public void testWithdrawException () throws BankOperationInterface.DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
+    public void testWithdrawException () throws BankOperation.BankOperationInterface.DoubleExecutionException, BankProductAccountWithDebit.NotEnoughMoneyException {
         account = new BankProductAccountWithDebit(new BankProductAccountWithoutDebit(new Client("Mateusz", "Lewandowski"), new InterestZero()), 100.0f);
         account.setBalance(300.0f);
         Executable closureContainingCodeToTest = () -> {

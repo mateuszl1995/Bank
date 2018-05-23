@@ -1,4 +1,11 @@
+package BankProduct;
+
+import Bank.History;
+
 import java.util.Date;
+import Interest.Interest;
+import BankOperation.BankOperation;
+import Bank.History;
 
 public abstract class BankProduct implements BankProductInterface {
     BankProduct(Interest interest){

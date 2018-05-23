@@ -1,3 +1,10 @@
+package BankProduct;
+
+import Bank.Client;
+import Report.ReportVisitorInterface;
+import Interest.Interest;
+import BankOperation.BankOperation;
+
 public class BankProductAccountWithDebit implements BankProductAccount, BankProductInterface {
     BankProductAccountWithDebit(BankProductAccountWithoutDebit account, float limit){
         this.account = account;
@@ -79,6 +86,6 @@ public class BankProductAccountWithDebit implements BankProductAccount, BankProd
     }
 
 
-    class NotEnoughMoneyException extends Throwable {  }
+    public class NotEnoughMoneyException extends Throwable {  }
 }
 
