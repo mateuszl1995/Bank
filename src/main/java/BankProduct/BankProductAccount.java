@@ -6,7 +6,7 @@ import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.Interest;
 import Report.ReportVisitorInterface;
 
-public interface BankProductAccount{
+public interface BankProductAccount extends BankProductInterface{
     
     long getNumber();
     Interest getInterest();
@@ -21,10 +21,10 @@ public interface BankProductAccount{
     boolean containsInvestment(Investment investment);
     Investment getInvestment(int index);
 
-    void addCredit(Credit credit);
-    void removeCredit(Credit credit);
-    boolean containsCredit(Credit credit);
-    void eraseCredit(Credit credit);
+    void addCredit(BankProduct.BankProductInterface credit);
+    void removeCredit(BankProduct.BankProductInterface credit);
+    boolean containsCredit(BankProduct.BankProductInterface credit);
+    void eraseCredit(BankProduct.BankProductInterface credit);
 
     BankProductAccount getAccount();
 

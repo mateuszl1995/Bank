@@ -5,7 +5,7 @@ import Interest.Interest;
 
 import java.util.Date;
 
-public class Credit {
+public class Credit implements BankProductInterface {
     private float amount;
     private Date expires;
     private BankProductAccount linkedAccount;
@@ -19,10 +19,12 @@ public class Credit {
         this.expires = expires;
     }
 
+    @Override
     public Interest getInterest() {
         return interest;
     }
 
+    @Override
     public float getBalance() {
         return amount;
     }
@@ -39,6 +41,7 @@ public class Credit {
 
     public BankProductAccount getAccount() { return this.linkedAccount; }
 
+    @Override
     public void calculateInterest() { interest.calculateInterest(this); }
 
 }

@@ -1,11 +1,9 @@
-package Interest;//interest == odsetki;
-//liabilities == zadłużenie
-import BankProduct.BankProductAccount;
-import BankProduct.Credit;
-import BankProduct.Investment;
+package Interest;
+
+import BankProduct.BankProductInterface;
+
 
 public interface Interest {
-    float calculateInterest(BankProductAccount product);
-    float calculateInterest(Credit credit);
-    float caltulateInterest(Investment investment);
+    float calculateInterest(BankProductInterface product);
+
 }

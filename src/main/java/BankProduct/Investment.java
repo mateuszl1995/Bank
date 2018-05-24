@@ -5,7 +5,7 @@ import Report.ReportVisitorInterface;
 
 import java.util.Date;
 
-public class Investment {
+public class Investment implements BankProductInterface{
     private Interest interest;
     private BankProductAccount linkedAccount;
     private Date expires;
@@ -21,6 +21,7 @@ public class Investment {
         this.initialAmount = amount;
     }
 
+    public void calculateInterest() { interest.calculateInterest(this); }
     public float getBalance() {
         return amount;
     }

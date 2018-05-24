@@ -1,6 +1,7 @@
 package BankOperation;
 
 import BankProduct.BankProductAccount;
+import BankProduct.BankProductInterface;
 import BankProduct.Credit;
 import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.Interest;
@@ -11,7 +12,7 @@ public class BankOperationCreateCredit extends BankOperation {
 
     float amount;
     Interest interest;
-    Credit credit;
+    BankProductInterface credit;
     BankProductAccount productSource;
     Date expires;
 

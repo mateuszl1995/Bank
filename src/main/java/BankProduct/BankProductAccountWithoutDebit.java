@@ -12,13 +12,13 @@ public class BankProductAccountWithoutDebit extends BankProduct {
         super(interest);
         this.client = client;
         this.investments = new ArrayList<Investment>();
-        this.credits = new ArrayList<Credit>();
+        this.bankProductInterfaces = new ArrayList<Credit>();
     }
 
     private Client client;
 
     List<Investment> investments;
-    List<Credit> credits;
+    List<BankProduct.BankProductInterface> credits;
 
     public Interest getInterest() {
         return interest;
@@ -47,13 +47,13 @@ public class BankProductAccountWithoutDebit extends BankProduct {
         return investments.contains(investment);
     }
     public Investment getInvestment(int index) { return investments.get(index); }
-    public void addCredit(Credit credit) { credits.add(credit); }
-    public void removeCredit (Credit credit) { credits.remove(credit); }
-    public boolean containsCredit(Credit credit) {
-        return credits.contains(credit);
+    public void addCredit(BankProduct.BankProductInterface credit) { bankProductInterfaces.add(bankProductInterface); }
+    public void removeCredit (BankProduct.BankProductInterface credit) { bankProductInterfaces.remove(bankProductInterface); }
+    public boolean containsCredit(BankProduct.BankProductInterface credit) {
+        return bankProductInterfaces.contains(bankProductInterface);
     }
-    public void eraseCredit(Credit credit) {
-        credits.remove(credit);
+    public void eraseCredit(BankProduct.BankProductInterface credit) {
+        bankProductInterfaces.remove(bankProductInterface);
     }
     public BankProductAccount getAccount() {
         return this;

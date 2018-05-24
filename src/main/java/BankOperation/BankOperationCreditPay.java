@@ -1,17 +1,18 @@
 package BankOperation;
 
 import BankProduct.BankProductAccount;
+import BankProduct.BankProductInterface;
 import BankProduct.Credit;
 import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public class BankOperationCreditPay extends BankOperation {
-    Credit credit;
+    BankProductInterface bankProductInterface;
     BankProductAccount source;
     BankOperationCreditPay(Credit credit) {
         super(credit.getAccount());
         this.source = productSource;
         productSource = null;
-        this.credit = credit;
+        this.bankProductInterface = credit;
     }
 
     @Override
@@ -21,10 +22,10 @@ public class BankOperationCreditPay extends BankOperation {
 
     @Override
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        credit.calculateInterest();
+        bankProductInterface.calculateInterest();
         try {
-            productSource.changeBalance(-credit.getBalance());
-            productSource.removeCredit(credit);
+            productSource.changeBalance(-bankProductInterface.getBalance());
+            productSource.removeCredit(bankProductInterface);
         } catch (Exception e) {
             return State.FAIL;
         }
