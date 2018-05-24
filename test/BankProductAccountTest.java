@@ -6,8 +6,7 @@ import BankProduct.Decorators.BankProductAccountWithDebit;
 import BankProduct.BankProductAccountWithoutDebit;
 import Interest.Interest;
 import Interest.InterestZero;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -20,8 +19,6 @@ public class BankProductAccountTest {
     static Interest interest;
     static Client client;
 
-
-    @Test
     public void testFirstForExcerciseJunitAndMockito() {
         interest = mock(InterestZero.class);
         when(interest.calculateInterest(account)).thenReturn(30.0f);

@@ -1,8 +1,9 @@
 package Bank;
 
 import BankOperation.*;
-import BankProduct.Decorators.BankProductAccountWithDebit;
+import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithoutDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.InterestAnnual;
 import Interest.InterestZero;
 
@@ -20,6 +21,7 @@ public class Main {
         Client client = new Client("Jan", "Kowalski");
         BankProductAccount account = new BankProductAccountWithoutDebit(client, new InterestAnnual(2.75f));
         BankProductAccount account2 = new BankProductAccountWithoutDebit(client, new InterestZero());
+
 
         BankOperationInterface operation;
 

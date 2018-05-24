@@ -1,5 +1,6 @@
 package BankOperation;
 
+import BankProduct.BankProductAccount;
 import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public class BankOperationDeposit extends BankOperation {

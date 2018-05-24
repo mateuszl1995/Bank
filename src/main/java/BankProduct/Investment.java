@@ -13,7 +13,7 @@ public class Investment {
     private float initialAmount;
 
 
-    Investment(BankProductAccount linkedAccount, float amount, Interest interest, Date expires){
+    public Investment(BankProductAccount linkedAccount, float amount, Interest interest, Date expires){
         this.linkedAccount = linkedAccount;
         this.interest = interest;
         this.expires = expires;
