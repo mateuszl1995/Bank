@@ -27,7 +27,6 @@ public abstract class BankOperation implements BankOperationInterface {
         return productSource;
     }
 
-    @Override
     public void setProductDestination(BankProductAccount productDestination) {
         this.productDestination = productDestination;
     }

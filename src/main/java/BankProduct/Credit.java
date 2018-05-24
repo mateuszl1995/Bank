@@ -12,7 +12,7 @@ public class Credit {
     private Interest interest;
 
 
-    Credit(BankProductAccount linkedAccount, float amount, Interest interest, Date expires){
+    public Credit(BankProductAccount linkedAccount, float amount, Interest interest, Date expires){
         this.interest = interest;
         this.linkedAccount = linkedAccount;
         this.amount = amount;
@@ -39,7 +39,6 @@ public class Credit {
 
     public BankProductAccount getAccount() { return this.linkedAccount; }
 
-    public void acceptReport(ReportVisitorInterface visitor) {
-        visitor.visit(this);
-    }
+    public void calculateInterest() { interest.calculateInterest(this); }
+
 }

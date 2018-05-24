@@ -1,6 +1,8 @@
 package Interest;
 
 import BankProduct.BankProductAccount;
+import BankProduct.Credit;
+import BankProduct.Investment;
 
 public class InterestAnnual implements Interest {
     private float percentage; // TODO: change to more precise data-type
@@ -10,8 +12,17 @@ public class InterestAnnual implements Interest {
 
     @Override
     public float calculateInterest(BankProductAccount product) {
-       float balance = product.getBalance();
        return percentage*product.getBalance();
+    }
+
+    @Override
+    public float calculateInterest(Credit credit) {
+        return percentage*credit.getBalance();
+    }
+
+    @Override
+    public float caltulateInterest(Investment investment) {
+        return percentage*investment.getBalance();
     }
 
 

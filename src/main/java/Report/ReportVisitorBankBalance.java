@@ -21,11 +21,6 @@ public class ReportVisitorBankBalance implements ReportVisitorInterface {
     }
 
     @Override
-    public void visit(BankProduct.Investment product) {
-        balance+=product.getBalance();
-    }
-
-    @Override
     public void visit(BankProductAccountWithoutDebit product) {
         balance+=product.getBalance();
     }
@@ -35,8 +30,4 @@ public class ReportVisitorBankBalance implements ReportVisitorInterface {
         balance+=product.getBalance();
     }
 
-    @Override
-    public void visit(BankProduct.Credit product) {
-        balance+=product.getBalance();
-    }
 }

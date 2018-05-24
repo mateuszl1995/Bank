@@ -1,10 +1,11 @@
 package BankProduct.Decorators;
 
+import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithoutDebit;
 import Report.ReportVisitorInterface;
 
 public class BankProductAccountWithDebit extends BankProductAccountDecorator {
-    BankProductAccountWithDebit(BankProductAccountWithoutDebit baseProduct, float limit){
+    BankProductAccountWithDebit(BankProductAccount baseProduct, float limit){
         super(baseProduct);
         this.limit = limit;
     }
@@ -15,9 +16,10 @@ public class BankProductAccountWithDebit extends BankProductAccountDecorator {
     public void changeBalance(float amount) throws NotEnoughMoneyException {
         float balance = baseProduct.getBalance() - debit;
         balance += amount;
-        if (balance < baseProduct.getBalance() - limit)
+        if (balance < -(baseProduct.getBalance() + limit)) {
             throw new NotEnoughMoneyException();
-        if (balance < 0) {
+        }
+        else if (balance < 0) {
             debit = -balance;
             baseProduct.setBalance(0.0f);
         } else {

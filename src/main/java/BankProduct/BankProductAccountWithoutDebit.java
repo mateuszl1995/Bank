@@ -11,14 +11,14 @@ public class BankProductAccountWithoutDebit extends BankProduct {
     public BankProductAccountWithoutDebit(Client client, Interest interest){
         super(interest);
         this.client = client;
-        this.investments = new ArrayList<BankProduct.Investment>();
-        this.credits = new ArrayList<BankProduct.Credit>();
+        this.investments = new ArrayList<Investment>();
+        this.credits = new ArrayList<Credit>();
     }
 
     private Client client;
 
-    List<BankProduct.Investment> investments;
-    List<BankProduct.Credit> credits;
+    List<Investment> investments;
+    List<Credit> credits;
 
     public Interest getInterest() {
         return interest;
@@ -37,22 +37,22 @@ public class BankProductAccountWithoutDebit extends BankProduct {
         super.changeBalance(amount);
     }
 
-    public void addInvestment(BankProduct.Investment investment) {
+    public void addInvestment(Investment investment) {
         investments.add(investment);
     }
-    public void eraseInvestment(BankProduct.Investment investment) {
+    public void eraseInvestment(Investment investment) {
         investments.remove(investment);
     }
-    public boolean containsInvestment(BankProduct.Investment investment) {
+    public boolean containsInvestment(Investment investment) {
         return investments.contains(investment);
     }
-    public BankProduct.Investment getInvestment(int index) { return investments.get(index); }
-    public void addCredit(BankProduct.Credit credit) { credits.add(credit); }
-    public void removeCredit (BankProduct.Credit credit) { credits.remove(credit); }
-    public boolean containsCredit(BankProduct.Credit credit) {
+    public Investment getInvestment(int index) { return investments.get(index); }
+    public void addCredit(Credit credit) { credits.add(credit); }
+    public void removeCredit (Credit credit) { credits.remove(credit); }
+    public boolean containsCredit(Credit credit) {
         return credits.contains(credit);
     }
-    public void eraseCredit(BankProduct.Credit credit) {
+    public void eraseCredit(Credit credit) {
         credits.remove(credit);
     }
     public BankProductAccount getAccount() {

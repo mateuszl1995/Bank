@@ -9,6 +9,5 @@ public interface ReportVisitorInterface {
 
     void visit(BankProductAccountWithDebit product);
     void visit(BankProductAccountWithoutDebit product);
-    void visit(Credit product);
-    void visit(Investment product);
+
 }

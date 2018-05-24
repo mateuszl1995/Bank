@@ -16,15 +16,15 @@ public interface BankProductAccount{
     void setBalance(float balance);
     void changeBalance(float amount) throws BankProductAccountWithDebit.NotEnoughMoneyException;
 
-    void addInvestment(BankProduct.Investment investment);
-    void eraseInvestment(BankProduct.Investment investment);
-    boolean containsInvestment(BankProduct.Investment investment);
-    BankProduct.Investment getInvestment(int index);
+    void addInvestment(Investment investment);
+    void eraseInvestment(Investment investment);
+    boolean containsInvestment(Investment investment);
+    Investment getInvestment(int index);
 
-    void addCredit(BankProduct.Credit credit);
-    void removeCredit(BankProduct.Credit credit);
-    boolean containsCredit(BankProduct.Credit credit);
-    void eraseCredit(BankProduct.Credit credit);
+    void addCredit(Credit credit);
+    void removeCredit(Credit credit);
+    boolean containsCredit(Credit credit);
+    void eraseCredit(Credit credit);
 
     BankProductAccount getAccount();
 

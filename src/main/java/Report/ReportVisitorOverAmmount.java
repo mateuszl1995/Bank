@@ -22,12 +22,6 @@ public class ReportVisitorOverAmmount implements ReportVisitorInterface {
     }
 
     @Override
-    public void visit(BankProduct.Credit product) {
-        if (product.getBalance() > amount)
-            this.matchingProducts.add(product);
-    }
-
-    @Override
     public void visit(BankProductAccountWithDebit product) {
         if (product.getBalance() > amount)
             this.matchingProducts.add(product);
@@ -39,9 +33,4 @@ public class ReportVisitorOverAmmount implements ReportVisitorInterface {
             this.matchingProducts.add(product);
     }
 
-    @Override
-    public void visit(BankProduct.Investment product) {
-        if (product.getBalance() > amount)
-            this.matchingProducts.add(product);
-    }
 }

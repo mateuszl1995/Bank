@@ -21,6 +21,9 @@ public class Investment {
         this.initialAmount = amount;
     }
 
+    public float getBalance() {
+        return amount;
+    }
     public float getAmount() { return this.amount;   }
     public float getInitialAmount() { return this.initialAmount; }
     public BankProductAccount getAccount() { return this.linkedAccount; }
@@ -35,7 +38,6 @@ public class Investment {
         else return false;
     }
 
-    public void acceptReport(ReportVisitorInterface visitor) {
-        visitor.visit(this);
-    }
+
+
 }

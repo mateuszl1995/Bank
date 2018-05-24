@@ -31,13 +31,4 @@ public class ReportVisitorBelowZero implements ReportVisitorInterface {
 
     }
 
-    @Override
-    public void visit(BankProduct.Investment product) {
-
-    }
-
-    @Override
-    public void visit(BankProduct.Credit product) {
-
-    }
 }
