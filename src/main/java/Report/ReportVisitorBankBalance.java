@@ -20,6 +20,10 @@ public class ReportVisitorBankBalance implements ReportVisitorInterface {
         return balance;
     }
 
+    public float getBalance() {
+        return balance;
+    }
+
     @Override
     public void visit(BankProductAccountWithoutDebit product) {
         balance+=product.getBalance();

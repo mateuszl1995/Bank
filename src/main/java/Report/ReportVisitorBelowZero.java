@@ -20,6 +20,7 @@ public class ReportVisitorBelowZero implements ReportVisitorInterface {
         return matchingProducts;
     }
 
+
     @Override
     public void visit(BankProductAccountWithDebit product) {
         if (product.getBalance() < 0)

@@ -5,7 +5,7 @@ import BankProduct.BankProductAccountWithoutDebit;
 import Report.ReportVisitorInterface;
 
 public class BankProductAccountWithDebit extends BankProductAccountDecorator {
-    BankProductAccountWithDebit(BankProductAccount baseProduct, float limit){
+    public BankProductAccountWithDebit(BankProductAccount baseProduct, float limit){
         super(baseProduct);
         this.limit = limit;
     }
