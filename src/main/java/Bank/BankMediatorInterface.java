@@ -1,10 +1,13 @@
 package Bank;
 
 import BankOperation.BankOperationInterface;
+import BankProduct.BankProductAccount;
 import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public interface BankMediatorInterface {
 
     void addBank(BankInterface bank);
-    void executeOperation(BankOperationInterface bankOperation, BankInterface bank) throws BankProductAccountWithDebit.NotEnoughMoneyException;
+    boolean acceptOperation(BankOperationInterface operation, BankInterface hostBank);
+
+
 }

@@ -23,6 +23,10 @@ public class History {
         list.add(operation);
     }
 
+    public List<BankOperationInterface> getList() {
+        return list;
+    }
+
     public BankOperationInterface get(int index) {
         return list.get(index);
     }

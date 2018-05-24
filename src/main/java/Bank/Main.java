@@ -24,7 +24,7 @@ public class Main {
 
 
         BankOperationInterface operation;
-
+    try {
         operation = new BankOperationDeposit(account, 5000.0f);
         bank.execute(operation);
 
@@ -57,5 +57,8 @@ public class Main {
 
         operation = new BankOperationBreakInvestment(account2.getInvestment(0));
         bank.execute(operation);
+    } catch (Throwable e){
+        e.printStackTrace();
+    }
     }
 }

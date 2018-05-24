@@ -7,13 +7,14 @@ import BankProduct.Decorators.BankProductAccountWithDebit;
 import java.util.ArrayList;
 
 public class Bank implements BankInterface{
-    History history;
-    ArrayList<BankProductAccount> accountsList;
-    BankMediatorInterface mediator;
+    private History history;
+    private ArrayList<BankProductAccount> accountsList;
+    private BankMediatorInterface mediator;
 
     public Bank(BankMediatorInterface mediator) {
         this.history = new History();
         this.mediator = mediator;
+        this.accountsList = new ArrayList<>();
     }
 
     public ArrayList<BankProductAccount> getAccountsList() {
@@ -24,9 +25,23 @@ public class Bank implements BankInterface{
         accountsList.add(product);
     }
 
-    public BankProductAccount getBankProduct(long number){
-        for (BankProductAccount bankProduct : accountsList){
-            if (bankProduct.getNumber() == number){
+    public History getHistory() {
+        return history;
+    }
+
+    public boolean acceptOperation(BankOperationInterface operation){
+        if (operation.getDestinationNumber() == null &&  accountsList.contains(operation.getProductSource())) return true; //local bank
+        if (getBankProduct(operation.getDestinationNumber()) != null) {
+            //if (SomeConditions){
+            operation.setProductDestination(getBankProduct(operation.getDestinationNumber()));
+            return true;
+            }
+        return false;
+    }
+
+    private BankProductAccount getBankProduct(Long number){
+        for (BankProductAccount bankProduct : accountsList) {
+            if (bankProduct.getNumber() == number) {
                 return bankProduct;
             }
         }
@@ -38,19 +53,24 @@ public class Bank implements BankInterface{
         history.add(operation);
     }
 
-    public void execute(BankOperationInterface bankOperation) throws BankProductAccountWithDebit.NotEnoughMoneyException {
+    public void execute(BankOperationInterface bankOperation)
+            throws  BankOperationInterface.DoubleExecutionException,
+                    AccountNumberNotFoundException,
+                    BankProductAccountWithDebit.NotEnoughMoneyException{
         try {
-            Long destinationNumber = bankOperation.getDestinationNumber();
-            if (getBankProduct(destinationNumber) != null) {
-                bankOperation.setProductDestination(getBankProduct(destinationNumber));
+            if (!accountsList.contains(bankOperation.getProductSource())) throw new AccountNumberNotFoundException("Product source doesn't belong to this bank");
+            if (acceptOperation(bankOperation)) {
                 bankOperation.execute();
                 history.add(bankOperation);
             }
-            else {
-                mediator.executeOperation(bankOperation, this);
+            else if (mediator.acceptOperation(bankOperation, this)) {
+                bankOperation.execute();
+                history.add(bankOperation);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            else throw new AccountNumberNotFoundException();
+        } catch (BankProductAccountWithDebit.NotEnoughMoneyException
+                | BankOperationInterface.DoubleExecutionException e) {
+                    throw e;
         }
     }
 }
