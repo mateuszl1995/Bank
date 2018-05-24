@@ -31,6 +31,8 @@ public class BankOperationWithdrawTest {
         try {
             operation.executeOperation();
             Assertions.assertEquals(BankOperationInterface.State.FAIL, operation.executeOperation());
+            Assertions.assertEquals(20,account1.getBalance());
+
         } catch (Throwable e){
             Assertions.fail();
         }
@@ -38,9 +40,11 @@ public class BankOperationWithdrawTest {
 
     @Test
     void execute(){
-        account1.setBalance(50);
+        account1.setBalance(60);
         try {
             Assertions.assertEquals(BankOperationInterface.State.SUCCESS, operation.executeOperation());
+            Assertions.assertEquals(10,account1.getBalance());
+
         } catch (Throwable e){}
 }
 
@@ -49,6 +53,8 @@ public class BankOperationWithdrawTest {
         BankProductAccountWithDebit account = new BankProductAccountWithDebit(account1, 20);
         try {
             Assertions.assertEquals(BankOperationInterface.State.SUCCESS, operation.executeOperation());
+            Assertions.assertEquals(0,account1.getBalance());
+
         } catch (Throwable e){}
     }
 
@@ -58,6 +64,7 @@ public class BankOperationWithdrawTest {
         BankProductAccountWithDebit account = new BankProductAccountWithDebit(account1, 50);
         try {
             Assertions.assertEquals(BankOperationInterface.State.SUCCESS, operation.executeOperation());
+            Assertions.assertEquals(-50.f,account1.getBalance());
         } catch (Throwable e){}
     }
 

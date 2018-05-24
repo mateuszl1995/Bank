@@ -32,6 +32,8 @@ public class BankOperationDepositTest {
         account1.setBalance(50);
         try {
             Assertions.assertEquals(BankOperationInterface.State.SUCCESS, operation.executeOperation());
+            Assertions.assertEquals(100,account1.getBalance());
+
         } catch (Throwable e){
             Assertions.fail();
         }
