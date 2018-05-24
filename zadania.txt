@@ -1,11 +1,11 @@
 Mediator - przesyłanie do innych banków
-ZROBIONE
+ZROBIONE + testy
 
 Visitor - system raportów podobny do tego na wykładzie. Stworzyć nowe klasy tworzące nowe raporty. Visitor zbiera informacje z różnych produktów bankowych. (3 różne visitory z testami)
 ZROBIONE (bez testów)
 
 Dekorator - AccountWithDebit rozszerza Account
-NIEZROBIONE
+ZROBIONE + testy
 
 Command - bank operation jako klasy
 ZROBIONE
