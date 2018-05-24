@@ -28,6 +28,11 @@ public class BankProductAccountWithDebit extends BankProductAccountDecorator {
         }
     }
 
+    @Override
+    public void calculateInterest() {
+        baseProduct.calculateInterest();
+    }
+
     public float getBalance() {
         return baseProduct.getBalance() - debit;
     }

@@ -12,7 +12,7 @@ public class BankOperationCreateCredit extends BankOperation {
 
     float amount;
     Interest interest;
-    BankProductInterface credit;
+    Credit credit;
     BankProductAccount productSource;
     Date expires;
 

@@ -21,10 +21,10 @@ public interface BankProductAccount extends BankProductInterface{
     boolean containsInvestment(Investment investment);
     Investment getInvestment(int index);
 
-    void addCredit(BankProduct.BankProductInterface credit);
-    void removeCredit(BankProduct.BankProductInterface credit);
-    boolean containsCredit(BankProduct.BankProductInterface credit);
-    void eraseCredit(BankProduct.BankProductInterface credit);
+    void addCredit(Credit credit);
+    void removeCredit(Credit credit);
+    boolean containsCredit(Credit credit);
+    void eraseCredit(Credit credit);
 
     BankProductAccount getAccount();
 

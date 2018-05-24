@@ -6,13 +6,13 @@ import BankProduct.Credit;
 import BankProduct.Decorators.BankProductAccountWithDebit;
 
 public class BankOperationCreditPay extends BankOperation {
-    BankProductInterface bankProductInterface;
+    Credit credit;
     BankProductAccount source;
     BankOperationCreditPay(Credit credit) {
         super(credit.getAccount());
         this.source = productSource;
         productSource = null;
-        this.bankProductInterface = credit;
+        this.credit = credit;
     }
 
     @Override
@@ -22,10 +22,10 @@ public class BankOperationCreditPay extends BankOperation {
 
     @Override
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        bankProductInterface.calculateInterest();
+        credit.calculateInterest();
         try {
-            productSource.changeBalance(-bankProductInterface.getBalance());
-            productSource.removeCredit(bankProductInterface);
+            productSource.changeBalance(-credit.getBalance());
+            productSource.removeCredit(credit);
         } catch (Exception e) {
             return State.FAIL;
         }

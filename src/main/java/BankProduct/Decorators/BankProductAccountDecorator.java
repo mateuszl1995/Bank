@@ -3,7 +3,7 @@ package BankProduct.Decorators;
 import Bank.Client;
 import BankOperation.BankOperation;
 import BankProduct.BankProductAccount;
-import BankProduct.BankProductInterface;
+import BankProduct.Credit;
 import BankProduct.Credit;
 import BankProduct.Investment;
 import Interest.Interest;
@@ -37,10 +37,10 @@ public abstract class BankProductAccountDecorator implements BankProductAccount 
     public boolean containsInvestment(Investment investment){return baseProduct.containsInvestment(investment);}
     public Investment getInvestment(int index){return baseProduct.getInvestment(index);}
 
-    public void addCredit(BankProductInterface credit){baseProduct.addCredit(bankProductInterface);}
-    public void removeCredit(BankProductInterface credit){baseProduct.removeCredit(bankProductInterface);}
-    public boolean containsCredit(BankProductInterface credit){return baseProduct.containsCredit(bankProductInterface);}
-    public void eraseCredit(BankProductInterface credit){baseProduct.eraseCredit(bankProductInterface);}
+    public void addCredit(Credit credit){baseProduct.addCredit(credit);}
+    public void removeCredit(Credit credit){baseProduct.removeCredit(credit);}
+    public boolean containsCredit(Credit credit){return baseProduct.containsCredit(credit);}
+    public void eraseCredit(Credit credit){baseProduct.eraseCredit(credit);}
 
 
     public void acceptReport(ReportVisitorInterface visitor){baseProduct.acceptReport(visitor);}
