@@ -10,7 +10,6 @@ public abstract class BankProduct implements BankProductAccount {
     BankProduct(Interest interest){
         this.balance = 0;
         this.createDate = new Date();
-        this.history = new History();
         this.interest = interest;
         generateAccountNumber();
     }
@@ -18,7 +17,6 @@ public abstract class BankProduct implements BankProductAccount {
     protected long number;
     protected float balance;              //saldo
     protected Date createDate;
-    protected History history;
     protected Interest interest;
     static long maxNumber =  1000000000;
 
@@ -33,11 +31,6 @@ public abstract class BankProduct implements BankProductAccount {
     @Override
     public Interest getInterest() {
         return interest;
-    }
-
-    @Override
-    public void historyAdd(BankOperation operation) {
-        history.add(operation);
     }
 
     public void setBalance(float newBalance){
@@ -56,9 +49,6 @@ public abstract class BankProduct implements BankProductAccount {
         return balance;
     }
 
-    public History getHistory(){
-        return new History(history);
-    }
 
     public void setInterestType(Interest interest) { this.interest = interest; }
 

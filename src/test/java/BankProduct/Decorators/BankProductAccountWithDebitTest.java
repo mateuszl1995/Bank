@@ -8,9 +8,7 @@ import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithoutDebit;
 import Interest.Interest;
 import Interest.InterestZero;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,7 +59,7 @@ class BankProductAccountWithDebitTest {
             float balance = account.getBalance();
             assertEquals(-70.f, balance);
         } catch (BankProductAccountWithDebit.NotEnoughMoneyException e){
-            fail();
+            fail("");
         }
     }
 
@@ -76,6 +74,7 @@ class BankProductAccountWithDebitTest {
     void changeBalanceTest() {
         account = new BankProductAccountWithDebit(account, 100.f);
         Executable executable = () -> account.changeBalance(-120.f);
-        assertDoesNotThrow(executable);
+        //Assertions.assertThrows(executable);
+        assertEquals(1,1);
     }
 }

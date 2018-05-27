@@ -5,6 +5,7 @@ import BankOperation.BankOperationInterface;
 import BankOperation.BankOperationTransfer;
 import BankProduct.BankProductAccount;
 import BankProduct.BankProductAccountWithoutDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.Interest;
 import Interest.InterestZero;
 import org.junit.jupiter.api.Assertions;
@@ -90,8 +91,11 @@ public class BankTest {
         bank.addAccount(account1);
         bank.addAccount(account2);
         BankOperationInterface operation = new BankOperationTransfer(account1, account2.getNumber(), 0);
-        Executable executable = () -> bank.execute(operation);
-        Assertions.assertDoesNotThrow(executable);
+        try {
+            bank.execute(operation);
+        } catch (Throwable t) {
+            Assertions.fail("executeTransferLocal");
+        }
     }
 
     @Test
@@ -101,8 +105,11 @@ public class BankTest {
         mediator.addBank(bank2);
         bank2.addAccount(account2);
         BankOperationInterface operation = new BankOperationTransfer(account1, account2.getNumber(), 0);
-        Executable executable = () -> bank.execute(operation);
-        Assertions.assertDoesNotThrow(executable);
+        try {
+            bank.execute(operation);
+        } catch (Throwable t) {
+            Assertions.fail("executeTransferAnotherBank");
+        }
     }
 
     @Test
@@ -137,8 +144,11 @@ public class BankTest {
     void executeDeposit(){
         bank.addAccount(account1);
         BankOperationInterface operation = new BankOperationDeposit(account1, 0.f);
-        Executable executable = () -> bank.execute(operation);
-        Assertions.assertDoesNotThrow(executable);
+        try {
+            bank.execute(operation);
+        } catch (Throwable t) {
+            Assertions.fail("execute Deposit");
+        }
     }
 
 

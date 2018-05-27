@@ -14,14 +14,12 @@ public class BankOperationCreateCredit extends BankOperation {
     Interest interest;
     Credit credit;
     BankProductAccount productSource;
-    Date expires;
 
-    BankOperationCreateCredit(BankProductAccount productSource, float amount, Interest interest, Date expires) {
+    public BankOperationCreateCredit(BankProductAccount productSource, float amount, Interest interest) {
         super(productSource);
         this.productSource = productSource;
         this.amount = amount;
         this.interest = interest;
-        this.expires = expires;
     }
 
     @Override
@@ -35,7 +33,7 @@ public class BankOperationCreateCredit extends BankOperation {
 
     @Override
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        credit = new Credit(productSource, amount, interest, expires);
+        credit = new Credit(productSource, amount, interest);
         BankOperation op = new BankOperationDeposit(productSource, amount);
         op.executeOperation();
         productSource.addCredit(credit);

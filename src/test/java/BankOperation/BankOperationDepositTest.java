@@ -7,7 +7,6 @@ import Interest.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 public class BankOperationDepositTest {
 
@@ -35,7 +34,7 @@ public class BankOperationDepositTest {
             Assertions.assertEquals(100,account1.getBalance());
 
         } catch (Throwable e){
-            Assertions.fail();
+            Assertions.fail("");
         }
     }
 
@@ -46,7 +45,7 @@ public class BankOperationDepositTest {
             account.changeBalance(-20.f);
             operation.executeOperation();
         } catch (Throwable e){
-            Assertions.fail();
+            Assertions.fail("");
         }
         Assertions.assertEquals(30,account.getBalance());
     }

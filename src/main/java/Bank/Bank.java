@@ -12,8 +12,12 @@ public class Bank implements BankInterface{
     private BankMediatorInterface mediator;
 
     public Bank(BankMediatorInterface mediator) {
-        this.history = new History();
+        this();
         this.mediator = mediator;
+    }
+
+    public Bank() {
+        this.history = new History();
         this.accountsList = new ArrayList<>();
     }
 

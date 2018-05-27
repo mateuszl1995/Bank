@@ -8,7 +8,6 @@ import Interest.InterestAnnual;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 public class BankOperationWithdrawTest {
 
@@ -32,9 +31,8 @@ public class BankOperationWithdrawTest {
             operation.executeOperation();
             Assertions.assertEquals(BankOperationInterface.State.FAIL, operation.executeOperation());
             Assertions.assertEquals(20,account1.getBalance());
-
         } catch (Throwable e){
-            Assertions.fail();
+            Assertions.fail("");
         }
     }
 

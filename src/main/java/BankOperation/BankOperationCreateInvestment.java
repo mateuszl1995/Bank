@@ -12,14 +12,12 @@ public class BankOperationCreateInvestment extends BankOperation {
     Interest interest;
     Investment investment;
     BankProductAccount productSource;
-    Date expires;
 
-    public BankOperationCreateInvestment(BankProductAccount productSource, float amount, Interest interest, Date expires) {
+    public BankOperationCreateInvestment(BankProductAccount productSource, float amount, Interest interest) {
         super(productSource);
         this.productSource = productSource;
         this.amount = amount;
         this.interest = interest;
-        this.expires = expires;
     }
 
     @Override
@@ -36,7 +34,7 @@ public class BankOperationCreateInvestment extends BankOperation {
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
         if (productSource.getBalance() < amount)
             return State.FAIL;
-        investment = new Investment(productSource, amount, interest, expires);
+        investment = new Investment(productSource, amount, interest);
         BankOperation op = new BankOperationWithdraw(productSource, amount);
         op.executeOperation();
         productSource.addInvestment(investment);

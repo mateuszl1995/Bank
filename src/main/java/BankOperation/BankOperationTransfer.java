@@ -15,7 +15,7 @@ public class BankOperationTransfer extends BankOperation {
 
     @Override
     protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        if (productDestination != null) return State.FAIL;
+        if (productDestination == null) return State.FAIL;
         BankOperationWithdraw op1 = new BankOperationWithdraw(productSource, amount);
         if (op1.executeOperation() == State.SUCCESS) {
             BankOperationDeposit op2 = new BankOperationDeposit(productDestination, amount);

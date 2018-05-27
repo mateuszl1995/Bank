@@ -3,15 +3,12 @@ package BankOperation;
 import BankProduct.BankProductAccount;
 import BankProduct.BankProductInterface;
 import BankProduct.Credit;
-import BankProduct.Decorators.BankProductAccountWithDebit;
+import BankProduct.Decorators.BankProductAccountWithDebit.*;
 
 public class BankOperationCreditPay extends BankOperation {
     Credit credit;
-    BankProductAccount source;
-    BankOperationCreditPay(Credit credit) {
+    public BankOperationCreditPay(Credit credit) {
         super(credit.getAccount());
-        this.source = productSource;
-        productSource = null;
         this.credit = credit;
     }
 
@@ -21,10 +18,11 @@ public class BankOperationCreditPay extends BankOperation {
     }
 
     @Override
-    protected State executeOperation() throws BankProductAccountWithDebit.NotEnoughMoneyException {
-        credit.calculateInterest();
+    protected State executeOperation() throws NotEnoughMoneyException {
         try {
-            productSource.changeBalance(-credit.getBalance());
+            if (credit.getAmount() > productSource.getBalance())
+                return State.FAIL;
+            productSource.changeBalance(-credit.getAmount());
             productSource.removeCredit(credit);
         } catch (Exception e) {
             return State.FAIL;

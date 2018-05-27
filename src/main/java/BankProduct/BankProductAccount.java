@@ -1,14 +1,18 @@
 package BankProduct;
 
 import Bank.Client;
+import Bank.History;
 import BankOperation.BankOperation;
 import BankProduct.Decorators.BankProductAccountWithDebit;
 import Interest.Interest;
 import Report.ReportVisitorInterface;
 
+import java.util.Date;
+
 public interface BankProductAccount extends BankProductInterface{
     
     long getNumber();
+    Date getCreateDate();
     Interest getInterest();
     Client getClient();
 
@@ -25,6 +29,7 @@ public interface BankProductAccount extends BankProductInterface{
     void removeCredit(Credit credit);
     boolean containsCredit(Credit credit);
     void eraseCredit(Credit credit);
+    Credit getCredit(int index);
 
     BankProductAccount getAccount();
 
@@ -32,4 +37,6 @@ public interface BankProductAccount extends BankProductInterface{
 
 
     void historyAdd(BankOperation bankOperation);
+
+    History getHistory();
 }

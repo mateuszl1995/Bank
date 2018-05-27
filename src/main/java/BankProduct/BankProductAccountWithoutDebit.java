@@ -1,24 +1,41 @@
 package BankProduct;
 
 import Bank.Client;
+import Bank.History;
+import BankOperation.BankOperation;
+import Interest.InterestZero;
 import Interest.Interest;
 import Report.ReportVisitorInterface;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class BankProductAccountWithoutDebit extends BankProduct {
+public class BankProductAccountWithoutDebit extends BankProduct implements BankProductAccount {
+    public BankProductAccountWithoutDebit(Client client) {
+        this(client, new InterestZero());
+    }
     public BankProductAccountWithoutDebit(Client client, Interest interest){
         super(interest);
         this.client = client;
         this.investments = new ArrayList<Investment>();
         this.credits = new ArrayList<Credit>();
+        createDate = new Date();
+        history = new History();
     }
 
     private Client client;
+    Date createDate;
 
     List<Investment> investments;
     List<Credit> credits;
+
+    History history;
+
+    @Override
+    public Date getCreateDate() {
+        return createDate;
+    }
 
     public Interest getInterest() {
         return interest;
@@ -33,7 +50,17 @@ public class BankProductAccountWithoutDebit extends BankProduct {
     }
 
     @Override
-    public void changeBalance(float amount) {                      //todo: uwzglednić debit
+    public void historyAdd(BankOperation bankOperation) {
+        history.add(bankOperation);
+    }
+
+    @Override
+    public History getHistory() {
+        return history;
+    }
+
+    @Override
+    public void changeBalance(float amount) {
         super.changeBalance(amount);
     }
 
@@ -55,6 +82,12 @@ public class BankProductAccountWithoutDebit extends BankProduct {
     public void eraseCredit(Credit credit) {
         credits.remove(credit);
     }
+
+    @Override
+    public Credit getCredit(int index) {
+        return credits.get(0);
+    }
+
     public BankProductAccount getAccount() {
         return this;
     }
